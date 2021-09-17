@@ -1,9 +1,15 @@
 #include "func.hpp"
 
+namespace func{
+
 int main(){
-//    creatematrix();
+
+  matrix* mainmatrix = creatematrix();
+  
+  double* res = new double[(&mainmatrix).m];
   //  dowithmatrix();
     //printresult();
     //erasematrix();
     return 0;
+}
 }

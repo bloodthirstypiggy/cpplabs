@@ -1,7 +1,7 @@
 #include <iostream>
 
 namespace func{
-    struct Line{
+   struct Line{
         int n; // lenght
         double* a;
     };
@@ -9,5 +9,5 @@ namespace func{
         int m; // number of lines
         Line* lines; // array of lines
     };
-
+ 
 };

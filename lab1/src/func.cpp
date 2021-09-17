@@ -3,12 +3,42 @@
 
 namespace func {
 
+matrix* creatematrix()
+{
+ matrix* mainmatrix1 = new matrix;
+ return mainmatrix1;
+}
+
 int getNum(int &m) {
   std::cin >> m;
   if (!std::cin.good())
     return -1;
   return 1;
 }
+
+int getDouble(double &m) {
+  std::cin >> m;
+  if (!std::cin.good())
+    return -1;
+  return 1;
+}
+
+
+
+void erasematrix(matrix &mainmatrix)
+{
+  for (int i =0; i< mainmatrix.m; i++)
+  {
+  delete [] mainmatrix.lines[i].a;
+  delete [] mainmatrix.lines;
+  }
+
+  delete mainmatrix;//???
+
+
+}
+
+
 
 matrix input(matrix &mainmatrix) {
   mainmatrix.lines = nullptr; // link to the array of lines
@@ -33,10 +63,10 @@ matrix input(matrix &mainmatrix) {
         break;
       }
     } while (mainmatrix.lines[i].n < 1);
-    mainmatrix.lines.[i].a = new double[mainmatrix.lines.[i].n];
+    mainmatrix.lines[i].a = new double[mainmatrix.lines[i].n];
     std::cout << "enter items for line number " << (i + 1) << std::endl;
     for (int j = 0; j < mainmatrix.lines[i].n; j++) {
-      if (getNum(mainmatrix.lines[i].a[j]) < 0) {
+      if (getDouble(mainmatrix.lines[i].a[j]) < 0) {
         erasematrix(mainmatrix);
         break;
       }
@@ -47,24 +77,24 @@ matrix input(matrix &mainmatrix) {
 
 void output(matrix mainmatrix)
 {
-  for (int i; i < mainmatrix.m;i++){
-    for(int j; j<mainmatrix.lines[i].a[j];j++){
+  for (int i = 0; i < mainmatrix.m;i++){
+    for(int j = 0; j<mainmatrix.lines[i].a[j];j++){
   std::cout << "line :" << (i+1) << "numbers :" << mainmatrix.lines[i].a[j] << std::endl;
 }
 
 
 }}
 
-matrix erasematrix(matrix mainmatrix)
-{
+matrix result (matrix mainmatrix, double &res){
+  for (int i = 0; i< mainmatrix.m; i++)
+  {
+    max(mainmatrix.lines[i]);
+    while (int j = 0 < mainmatrix.m)
+    {
 
-
-
-
+    }
+  }
 }
-
-
-
 
 
 
