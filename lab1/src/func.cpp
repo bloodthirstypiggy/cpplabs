@@ -3,100 +3,73 @@
 
 namespace func {
 
-matrix* creatematrix()
-{
- matrix* mainmatrix1 = new matrix;
- return mainmatrix1;
-}
-
-int getNum(int &m) {
-  std::cin >> m;
-  if (!std::cin.good())
-    return -1;
-  return 1;
-}
-
-int getDouble(double &m) {
-  std::cin >> m;
-  if (!std::cin.good())
-    return -1;
-  return 1;
-}
-
-
-
-void erasematrix(matrix &mainmatrix)
-{
-  for (int i =0; i< mainmatrix.m; i++)
+  int getNum(int &a)
+	{
+		std::cin >> a;
+		if (!std::cin.good())	// обнаружена ошибка ввода или конец файла
+			return -1;
+		return 1;
+	}
+  matrix* makeMatrix(){
+  matrix* main = new matrix;
+  main->lines = 0;
+  main->nodes = nullptr;
+  return main;
+  }
+ void getNodes(matrix* main, int N){
+   int a;
+   int b;
+   int coordx;
+   int coordy;
+   int progress = 1;
+   const char* errormsg = "";
+  while(progress > 0)
   {
-  delete [] mainmatrix.lines[i].a;
-  delete [] mainmatrix.lines;
-  }
+  std::cout << "print x coordinate" << std::endl;
+  do{
 
-  delete mainmatrix;//???
+  std::cout << errormsg << std::endl;
+  a = getNum(coordx);
+  errormsg = "you are wrong. Repeat pls";
+  }while (a < 0);
 
-
-}
-
-
-
-matrix input(matrix &mainmatrix) {
-  mainmatrix.lines = nullptr; // link to the array of lines
-  int m;
-  const char *errormsg = "";
-  do {
-    std::cout << errormsg << std::endl;
-    std::cout << "Enter the number of lines" << std::endl;
-    errormsg = "no number of lines, repeat pls";
-    if (getNum(m) < 0) // error in getnum
-      break;
-  } while (m < 1);
-  mainmatrix.lines = new Line[m];
-  mainmatrix.m = m;
-  for (int i = 0; i < mainmatrix.m; i++) {
-    do {
-      std::cout << errormsg << std::endl;
-      std::cout << "enter the number of items in line" << (i + 1) << std::endl;
-      errormsg = "error number of items in line";
-      if (getNum(mainmatrix.lines[i].n) < 1) {
-        erasematrix(mainmatrix);
-        break;
-      }
-    } while (mainmatrix.lines[i].n < 1);
-    mainmatrix.lines[i].a = new double[mainmatrix.lines[i].n];
-    std::cout << "enter items for line number " << (i + 1) << std::endl;
-    for (int j = 0; j < mainmatrix.lines[i].n; j++) {
-      if (getDouble(mainmatrix.lines[i].a[j]) < 0) {
-        erasematrix(mainmatrix);
-        break;
-      }
-    }
-  }
-  return mainmatrix;
-}
-
-void output(matrix mainmatrix)
-{
-  for (int i = 0; i < mainmatrix.m;i++){
-    for(int j = 0; j<mainmatrix.lines[i].a[j];j++){
-  std::cout << "line :" << (i+1) << "numbers :" << mainmatrix.lines[i].a[j] << std::endl;
-}
-
-
-}}
-
-matrix result (matrix mainmatrix, double &res){
-  for (int i = 0; i< mainmatrix.m; i++)
+   const char* errormsg = "";
+do{
+  std::cout << errormsg << std::endl;
+  b = getNum(coordy);
+  errormsg = "you are wrong. Repeat pls";
+  while (coordy > N)
   {
-    max(mainmatrix.lines[i]);
-    while (int j = 0 < mainmatrix.m)
-    {
-
-    }
+  std::cout << errormsg << std::endl;
+  b = getNum(coordy);
   }
-}
 
+}while (b < 0);
 
+  main->nodes[coordy]->x = coordx;
+  main->nodes[coordy]->next = new Node;
+  main->nodes[coordy] = main->nodes[coordy]->next;
+
+  std::cout << "print 1. to start entering coordinates or 0 to result";
+  std::cin >> progress;
+  }
+  }
+
+matrix* createMatrix(){
+  matrix* mainmatrix = makeMatrix();
+  int N;// number of lines
+  const char* errormsg = "";
+  std::cout << "enter number of lines" << std::endl;
+  do{//получаем кол-во строк
+
+  std::cout << errormsg << std::endl;
+  errormsg = "you are wrong! Repeat please!";
+  } while(getNum(N) < 1);
+  Node** lines = new Node*[N];//выделили память под массив указателей. try catch ???
+   mainmatrix->lines = N;
+   mainmatrix->nodes = lines;//память под структуру матрицы выделена
+  getNodes(mainmatrix, N); 
+  }
 
 
 

@@ -1,13 +1,24 @@
-#include <iostream>
+#ifndef ADD_H
+#define ADD_H
 
-namespace func{
-   struct Line{
-        int n; // lenght
-        double* a;
+
+  struct Node {
+    int x;
+    Node* next;
     };
-    struct matrix{
-        int m; // number of lines
-        Line* lines; // array of lines
+
+
+    struct matrix {
+    int lines;
+    Node** nodes;
     };
- 
-};
+  
+int getNum(int &N);
+matrix* createMatrix();
+void getNodes(matrix* main, int N);
+matrix* makeMatrix();
+int inputMatrix(matrix main);
+double* getResult(matrix main);
+void printMatrix(double& result);
+void erase(matrix main);
+#endif
