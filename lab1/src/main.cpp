@@ -1,13 +1,22 @@
 #include "func.hpp"
+#include<iostream>
 
-namespace func{
+int main()
+{
+    int n;
+    std::cout << "print n" << "\n";
+    getNum(n);
 
-int main(){
-  matrix* main = createMatrix();
-  inputMatrix(main);
-  double * result = getResult(main);
-  printMatrix(result);
-  erase(main);
+    matrix* main = makeMatrix(n);
+    getNodes(main, n);
+    double* result = getResult(*main);
+    printMatrix(*main);
+    for (int i = 0; i < n; i++) {
+        std::cout << result[i] << " "
+                  << "\t";
+    }
+    //erase(main);
+    delete[] result;
     return 0;
 }
-}
+
