@@ -15,8 +15,7 @@ int main()
         std::cout << result[i] << " "
                   << "\t";
     }
-    //erase(main);
+    erase(main);
     delete[] result;
     return 0;
 }
-

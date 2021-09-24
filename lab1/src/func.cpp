@@ -142,4 +142,20 @@ double* getResult(matrix& main)
     }
     return b;
 }
+
+void freeNode(Node*& node){
+    if(node == nullptr)
+        return;
+    else
+        freeNode(node->next);
+    delete node;
+}
+
+void erase(matrix*& main){
+    for(int i = 0; i < main->lines; i++){
+        freeNode(main->nodes[i]);
+    }
+    delete[] main->nodes;
+    delete main;
+}
 // namespace func
