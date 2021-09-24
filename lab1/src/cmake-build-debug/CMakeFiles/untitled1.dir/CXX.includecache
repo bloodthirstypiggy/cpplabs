@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/piggy/CLionProjects/untitled1/func.cpp
+/home/piggy/Desktop/cpplabs/lab1/src/func.cpp
 func.hpp
-/home/piggy/CLionProjects/untitled1/func.hpp
+/home/piggy/Desktop/cpplabs/lab1/src/func.hpp
 iostream
 -
 
-/home/piggy/CLionProjects/untitled1/func.hpp
+/home/piggy/Desktop/cpplabs/lab1/src/func.hpp
 iostream
 -
 

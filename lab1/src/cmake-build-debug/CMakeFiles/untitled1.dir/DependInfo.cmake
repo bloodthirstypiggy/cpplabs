@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/piggy/CLionProjects/untitled1/func.cpp" "/home/piggy/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/func.cpp.o"
-  "/home/piggy/CLionProjects/untitled1/main.cpp" "/home/piggy/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/main.cpp.o"
+  "/home/piggy/Desktop/cpplabs/lab1/src/func.cpp" "/home/piggy/Desktop/cpplabs/lab1/src/cmake-build-debug/CMakeFiles/untitled1.dir/func.cpp.o"
+  "/home/piggy/Desktop/cpplabs/lab1/src/main.cpp" "/home/piggy/Desktop/cpplabs/lab1/src/cmake-build-debug/CMakeFiles/untitled1.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

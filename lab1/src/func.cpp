@@ -50,7 +50,7 @@ void getNodes(matrix* main, int N)
         } while (b < 0);
 
         int value;
-        std::cout << "print y coordinate" << std::endl;
+        std::cout << "print value" << std::endl;
         getNum(value);
 
         if (main->nodes[coordy] == nullptr) {
@@ -124,7 +124,7 @@ int getByCoord(matrix main, int i, int j)
         if (j == node->x)
             return node->value;
         else {
-            if (j > node->x)
+            if (j < node->x)
                 return 0;
             node = node->next;
         }
@@ -136,8 +136,9 @@ double* getResult(matrix& main)
 {
     double* b = new double[main.lines];
     for (int i = 0; i < main.lines; i++) {
+        b[i] = 0;
         for (int j = 0; j < main.lines; j++) {
-            b[i] = max(main, j) * getByCoord(main, i, j);
+            b[i] += max(main, j) * getByCoord(main, i, j);
         }
     }
     return b;
