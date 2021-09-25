@@ -27,30 +27,32 @@ void getNodes(matrix* main, int N)
     int progress = 1;
     const char* errormsg = "";
     while (progress > 0) {
-        std::cout << "print x coordinate" << std::endl;
+        errormsg = "";
+        std::cout << "print x coordinate -->";
         do {
 
-            std::cout << errormsg << std::endl;
+            std::cout << errormsg;
             a = getNum(coordx);
-            errormsg = "you are wrong. Repeat pls";
-        } while (a < 0);
+            if (coordx>N-1)
+                coordx = -1;
+            errormsg = "you are wrong. Repeat pls-->";
+        } while (coordx < 0);
 
         const char* errormsg = "";
 
-        std::cout << "print y coordinate" << std::endl;
+        std::cout << "print y coordinate -- >";
         do {
-            std::cout << errormsg << std::endl;
-            b = getNum(coordy);
-            errormsg = "you are wrong. Repeat pls";
-            while (coordy > N) {
-                std::cout << errormsg << std::endl;
-                b = getNum(coordy);
-            }
 
-        } while (b < 0);
+            std::cout << errormsg;
+            b = getNum(coordy);
+            if (coordy>N-1)
+                coordy = -1;
+
+            errormsg = "you are wrong. Repeat pls -->";
+        } while (coordy < 0);
 
         int value;
-        std::cout << "print value" << std::endl;
+        std::cout << "print value -->";
         getNum(value);
 
         if (main->nodes[coordy] == nullptr) {
@@ -80,7 +82,7 @@ void getNodes(matrix* main, int N)
                     prevNode->next = newNode(coordx, value);
             }
         }
-        std::cout << "print 1. to start entering coordinates or 0 to result";
+        std::cout << "print 1. to start entering coordinates or 0 to result -->";
         std::cin >> progress;
     }
 }
@@ -104,14 +106,20 @@ void printMatrix(matrix& main)
         std::cout << std::endl;
     }
 }
-
 int max(matrix main, int j)
 {
-    int max = 0;
+    int max = 0, cur;
     Node* node = main.nodes[j];
+    if(node == nullptr)
+        cur = 0;
+    else
+        cur = node->value;
     while (node != nullptr) {
-        if (node->value > max)
-            max = node->value;
+        if (node->value > cur)
+            max = node->x;
+        if(node->next != nullptr)
+            if(cur < 0 && node->next->x - node->x != 1)
+            {cur = 0; max = node->value + 1;}
         node = node->next;
     }
     return max;
@@ -137,8 +145,9 @@ double* getResult(matrix& main)
     double* b = new double[main.lines];
     for (int i = 0; i < main.lines; i++) {
         b[i] = 0;
+        int k = max(main, i);
         for (int j = 0; j < main.lines; j++) {
-            b[i] += max(main, j) * getByCoord(main, i, j);
+            b[i] += getByCoord(main, j, k) * getByCoord(main, i, j);
         }
     }
     return b;

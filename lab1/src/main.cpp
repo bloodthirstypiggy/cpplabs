@@ -4,8 +4,11 @@
 int main()
 {
     int n;
-    std::cout << "print n" << "\n";
-    getNum(n);
+    std::cout << "print n -->";
+    do
+    {
+        getNum(n);
+    }while (n < 0);
 
     matrix* main = makeMatrix(n);
     getNodes(main, n);
