@@ -8,8 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/piggy/Desktop/cpplabs/lab2/cisoide.cpp" "/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles/lab2.dir/cisoide.cpp.o"
+  "/home/piggy/Desktop/cpplabs/lab2/cissoid.cpp" "/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles/lab2.dir/cissoid.cpp.o"
   "/home/piggy/Desktop/cpplabs/lab2/main.cpp" "/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles/lab2.dir/main.cpp.o"
+  "/home/piggy/Desktop/cpplabs/lab2/test.cpp" "/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles/lab2.dir/test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

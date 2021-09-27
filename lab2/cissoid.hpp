@@ -4,35 +4,50 @@
 
 #ifndef LAB2_CISOID_HPP
 #define LAB2_CISOID_HPP
-namespace cissoid {
-    struct Point {
-        double x, y;
-    };
+#include<iostream>
+#include <cmath>
+#include <stdio.h>
+#include<strstream>
+#include <string.h>
+namespace cissoid1 {
 
     class Cissoid {
     private:
-        Point p;
         double a;//точка на которой окружность будет строиться
     public:
         Cissoid(double a = 1);
 
         ~Cissoid();
 
-        Cissoid getP() const;
-
-        Cissoid getA() const;
+        double getA() const;
 
         void SetA(double a);
 
-        void SetX(double x);
-
-        Point getX() const;
-
-        Point gety() const;
-
         double getYbyX(double x) const;
 
+        double getRbyFI(double fi) const;
+
+        double getSquare(double x) const;
+
+
+
     };
+
+    inline int getNum(int& a)
+    {
+        std::cin >> a;
+        if (!std::cin.good()) // обнаружена ошибка ввода или конец файла
+            return 0;
+        return 1;
+    }
+
+    inline int getDouble(double & a)
+    {
+        std::cin >> a;
+        if (!std::cin.good()) // обнаружена ошибка ввода или конец файла
+            return 0;
+        return 1;
+    }
 
 }
 #endif //LAB2_CISOID_HPP

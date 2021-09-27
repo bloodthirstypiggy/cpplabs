@@ -1,16 +1,14 @@
 #include "cissoid.hpp"
-#include <iostream>
-namespace cissoid {
+using namespace cissoid1;
 //Мы хотим изначально задать для объекта класса кривая x, a, (fi?)
 
 
 
 
-    void menu(Cissoid &cissoid) {
-        while (true) {
-            std::cout << "a = " << cissoid.getA() << "; coordinates = " << cissoid.getP()
-                      << "\n\tMENU:\n\t1. Change a and x, now a is = " << cissoid.getA() << "and x is ="
-                      << cissoid.getX()
+     void menu(Cissoid cissoid) {
+         bool cont = true;
+        while (cont) {
+            std::cout<< "\n\tMENU:\n\t1. Change a, now a is = " << cissoid.getA()
                       << ".\n\t2. Get y by x"
                       << "\n\t3. Get r by fi" // надо спрашивать угол
                       << "\n\t4. Get vertical asymptote"
@@ -20,28 +18,20 @@ namespace cissoid {
                       << "\n\t8. Exit.\n" << std::endl;
             int choice = 0;
             bool b = false;
-            Point p;
+
             while (true) {
                 b = getNum(choice);
                 if (b)
                     break;
                 std::cout << "TRY AGAIN!" << std::endl;
             }
-            double x, a;
+            int x;
+            double a, fi;
             switch (choice) {
                 case 1:
-                    std::cout << "x = ";
-                    while (true) {
-                        b = getNum(x);
-                        if (b)
-                            break;
-                        std::cout << "TRY AGAIN!" << std::endl;
-                    }
-                    cissoid.SetX(x);
-                    std::cout << "SUCCESS!" << std::endl;
                     std::cout << "a = ";
                     while (true) {
-                        b = getNum(a);
+                        b = getDouble(a);
                         if (b)
                             break;
                         std::cout << "TRY AGAIN!" << std::endl;
@@ -57,19 +47,26 @@ namespace cissoid {
                             break;
                         std::cout << "TRY AGAIN!" << std::endl;
                     }
-                    std::cout << "y(x) = " << cissoid.getybyx(x) << std::endl;
+
+                        std::cout << "y(x) = " << cissoid.getYbyX(x) << std::endl;
+
+
                     break;
-                    /*          case 3:
-                                  std::cout << "t = ";
+                              case 3:
+                                  std::cout << "fi = ";
                                   while (true) {
-                                      b = getNum(t);
+                                      b = getDouble(fi);
                                       if (b)
                                           break;
                                       std::cout << "TRY AGAIN!" << std::endl;
                                   }
-                                  std::cout << "r(t) = " << astroid.getLength(t) << std::endl;
+                                  std::cout << "r(fi) = " << cissoid.getRbyFI(fi) << std::endl;
                                   break;
                               case 4:
+                                  std::cout << 2*cissoid.getA() <<std::endl;
+                                      break;
+
+                              case 5:
                                   std::cout << "x = ";
                                   while (true) {
                                       b = getNum(x);
@@ -77,37 +74,23 @@ namespace cissoid {
                                           break;
                                       std::cout << "TRY AGAIN!" << std::endl;
                                   }
-                                  try {
-                                      point = astroid.getCoordY(x);
-                                      std::cout << "y(x) = " << abs(point.y) << " or y(x) = -" << abs(point.y) << std::endl;
-                                      break;
-                                  }
-                                  catch(std::exception e) {
-                                      std::cerr << "X > R!" << std::endl;
-                                      break;
-                                  }
-                              case 5:
-                                  std::cout << "t = ";
-                                  while (true) {
-                                      b = getNum(t);
-                                      if (b)
-                                          break;
-                                      std::cout << "TRY AGAIN!" << std::endl;
-                                  }
-                                  point = astroid.getCoords(t);
-                                  std::cout << "x(t) = " << point.x << ", y(t) = " << point.y << std::endl;
+                                  std::cout << "S = "<< cissoid.getSquare(x) << std::endl;
                                   break;
-                              case 6:
+                            /*  case 6:
                                   return;
                               default:
                                   break;
-                          */}
+                          */
+                case 8:
+                    cont = false;
+                    break;
+            }
         }
     }
 
-    int main(int argc, char *argv[]) {
-        Cissoid cissoid;
+    int main() {
+        Cissoid cissoid(1);
         menu(cissoid);
         //delete(cissoid);//??
+        return 0;
     }
-}

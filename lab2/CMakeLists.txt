@@ -8,4 +8,7 @@ include_directories(.)
 add_executable(lab2
         cissoid.cpp
         cissoid.hpp
-        main.cpp)
+        main.cpp
+        test.hpp
+        test.cpp)
+add_subdirectory(gtest/googletest-master)

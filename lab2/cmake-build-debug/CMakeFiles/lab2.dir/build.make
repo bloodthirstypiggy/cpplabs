@@ -66,18 +66,18 @@ include CMakeFiles/lab2.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lab2.dir/flags.make
 
-CMakeFiles/lab2.dir/cisoide.cpp.o: CMakeFiles/lab2.dir/flags.make
-CMakeFiles/lab2.dir/cisoide.cpp.o: ../cisoide.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab2.dir/cisoide.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/cisoide.cpp.o -c /home/piggy/Desktop/cpplabs/lab2/cisoide.cpp
+CMakeFiles/lab2.dir/cissoid.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/cissoid.cpp.o: ../cissoid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab2.dir/cissoid.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/cissoid.cpp.o -c /home/piggy/Desktop/cpplabs/lab2/cissoid.cpp
 
-CMakeFiles/lab2.dir/cisoide.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/cisoide.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piggy/Desktop/cpplabs/lab2/cisoide.cpp > CMakeFiles/lab2.dir/cisoide.cpp.i
+CMakeFiles/lab2.dir/cissoid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/cissoid.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piggy/Desktop/cpplabs/lab2/cissoid.cpp > CMakeFiles/lab2.dir/cissoid.cpp.i
 
-CMakeFiles/lab2.dir/cisoide.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/cisoide.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Desktop/cpplabs/lab2/cisoide.cpp -o CMakeFiles/lab2.dir/cisoide.cpp.s
+CMakeFiles/lab2.dir/cissoid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/cissoid.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Desktop/cpplabs/lab2/cissoid.cpp -o CMakeFiles/lab2.dir/cissoid.cpp.s
 
 CMakeFiles/lab2.dir/main.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/main.cpp.o: ../main.cpp
@@ -92,19 +92,34 @@ CMakeFiles/lab2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Desktop/cpplabs/lab2/main.cpp -o CMakeFiles/lab2.dir/main.cpp.s
 
+CMakeFiles/lab2.dir/test.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/test.cpp.o: ../test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab2.dir/test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/test.cpp.o -c /home/piggy/Desktop/cpplabs/lab2/test.cpp
+
+CMakeFiles/lab2.dir/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piggy/Desktop/cpplabs/lab2/test.cpp > CMakeFiles/lab2.dir/test.cpp.i
+
+CMakeFiles/lab2.dir/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Desktop/cpplabs/lab2/test.cpp -o CMakeFiles/lab2.dir/test.cpp.s
+
 # Object files for target lab2
 lab2_OBJECTS = \
-"CMakeFiles/lab2.dir/cisoide.cpp.o" \
-"CMakeFiles/lab2.dir/main.cpp.o"
+"CMakeFiles/lab2.dir/cissoid.cpp.o" \
+"CMakeFiles/lab2.dir/main.cpp.o" \
+"CMakeFiles/lab2.dir/test.cpp.o"
 
 # External object files for target lab2
 lab2_EXTERNAL_OBJECTS =
 
-lab2: CMakeFiles/lab2.dir/cisoide.cpp.o
+lab2: CMakeFiles/lab2.dir/cissoid.cpp.o
 lab2: CMakeFiles/lab2.dir/main.cpp.o
+lab2: CMakeFiles/lab2.dir/test.cpp.o
 lab2: CMakeFiles/lab2.dir/build.make
 lab2: CMakeFiles/lab2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable lab2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

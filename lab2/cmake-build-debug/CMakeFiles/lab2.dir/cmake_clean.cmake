@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lab2.dir/cisoide.cpp.o"
+  "CMakeFiles/lab2.dir/cissoid.cpp.o"
   "CMakeFiles/lab2.dir/main.cpp.o"
+  "CMakeFiles/lab2.dir/test.cpp.o"
   "lab2"
   "lab2.pdb"
 )

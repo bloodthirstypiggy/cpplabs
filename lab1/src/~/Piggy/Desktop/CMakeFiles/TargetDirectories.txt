@@ -1,0 +1,3 @@
+/home/piggy/Desktop/cpplabs/lab1/src/~/Piggy/Desktop/CMakeFiles/rebuild_cache.dir
+/home/piggy/Desktop/cpplabs/lab1/src/~/Piggy/Desktop/CMakeFiles/edit_cache.dir
+/home/piggy/Desktop/cpplabs/lab1/src/~/Piggy/Desktop/CMakeFiles/untitled1.dir
