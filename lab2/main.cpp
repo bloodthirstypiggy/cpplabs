@@ -76,11 +76,19 @@ using namespace cissoid1;
                                   }
                                   std::cout << "S = "<< cissoid.getSquare(x) << std::endl;
                                   break;
-                            /*  case 6:
-                                  return;
+                              case 6:
+                                  std::cout << "x = ";
+                    while (true) {
+                        b = getNum(x);
+                        if (b)
+                            break;
+                        std::cout << "TRY AGAIN!" << std::endl;
+                    }
+                    std::cout << "V = "<< cissoid.getVolume(x) << std::endl;
+                                  break;
                               default:
                                   break;
-                          */
+
                 case 8:
                     cont = false;
                     break;
@@ -88,9 +96,3 @@ using namespace cissoid1;
         }
     }
 
-    int main() {
-        Cissoid cissoid(1);
-        menu(cissoid);
-        //delete(cissoid);//??
-        return 0;
-    }

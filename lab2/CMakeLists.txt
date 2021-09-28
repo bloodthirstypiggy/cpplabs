@@ -11,4 +11,6 @@ add_executable(lab2
         main.cpp
         test.hpp
         test.cpp)
-add_subdirectory(gtest/googletest-master)
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+target_link_libraries(lab2 ${GTEST_LIBRARIES} pthread)

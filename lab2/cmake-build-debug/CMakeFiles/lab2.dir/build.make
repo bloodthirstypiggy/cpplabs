@@ -118,6 +118,7 @@ lab2: CMakeFiles/lab2.dir/cissoid.cpp.o
 lab2: CMakeFiles/lab2.dir/main.cpp.o
 lab2: CMakeFiles/lab2.dir/test.cpp.o
 lab2: CMakeFiles/lab2.dir/build.make
+lab2: /usr/lib/x86_64-linux-gnu/libgtest.a
 lab2: CMakeFiles/lab2.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable lab2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab2.dir/link.txt --verbose=$(VERBOSE)

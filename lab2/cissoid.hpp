@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include<strstream>
 #include <string.h>
+#include <gtest/gtest.h>.
 namespace cissoid1 {
 
     class Cissoid {
@@ -29,6 +30,7 @@ namespace cissoid1 {
 
         double getSquare(double x) const;
 
+        double getVolume(double x) const;
 
 
     };

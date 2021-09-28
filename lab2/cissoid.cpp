@@ -47,6 +47,11 @@ namespace cissoid1{
     }
 
 
+    double Cissoid::getVolume(double x) const {
+        double v = M_PI * M_PI * 2 * x*x*x;
+        return v;
+    }
+
 
 
 
