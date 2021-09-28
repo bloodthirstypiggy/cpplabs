@@ -123,8 +123,8 @@ t = 45;
 EXPECT_EQ(3.0 * 9.0 / 2.0, astroid->getCurvativeRadius(t));
 }*/
 
-int main(int argc, char* argv[])
+/*int main(int argc, char* argv[])
 {
 	testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
-}
+}*/
