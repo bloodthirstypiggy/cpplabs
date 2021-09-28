@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/piggy/Desktop/cpplabs/lab2/cissoid.cpp
+cissoid.hpp
+/home/piggy/Desktop/cpplabs/lab2/cissoid.hpp
+
 /home/piggy/Desktop/cpplabs/lab2/cissoid.hpp
 iostream
 -
@@ -19,14 +23,4 @@ string.h
 -
 gtest/gtest.h
 -
-
-/home/piggy/Desktop/cpplabs/lab2/test.cpp
-test.hpp
-/home/piggy/Desktop/cpplabs/lab2/test.hpp
-
-/home/piggy/Desktop/cpplabs/lab2/test.hpp
-gtest/gtest.h
--
-cissoid.hpp
-/home/piggy/Desktop/cpplabs/lab2/cissoid.hpp
 

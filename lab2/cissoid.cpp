@@ -6,10 +6,19 @@ namespace cissoid1{
     Cissoid::Cissoid(double a) { this->a = a;}
     Cissoid::~Cissoid() {}
     double Cissoid::getA() const {
+        if (a <0)
+        {
+
+            return -1;}
         return a;
     }
     void Cissoid::SetA(double _a) {
+
     a = _a;
+        if (a <0)
+        {
+            throw std::logic_error("hello");
+            }
     }
     double Cissoid::getYbyX(double x) const {
         if (2*a - x == 0)
