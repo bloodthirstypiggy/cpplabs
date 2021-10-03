@@ -6,10 +6,7 @@
 #define LAB2_CISOID_HPP
 #include<iostream>
 #include <cmath>
-#include <stdio.h>
-#include<strstream>
 #include <string.h>
-#include <gtest/gtest.h>.
 namespace cissoid1 {
 
     class Cissoid {

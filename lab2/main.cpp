@@ -95,9 +95,9 @@ using namespace cissoid1;
             }
         }
     }
-int main() {
+/*int main() {
     Cissoid cissoid(1);
     menu(cissoid);
     //delete(cissoid);//??
     return 0;
-}
+}*/
