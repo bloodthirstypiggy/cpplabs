@@ -6,7 +6,7 @@
 #define LAB2_TEST_HPP
 
 #include <gtest/gtest.h>
-#include "cissoid.hpp"
+#include "classcissoid/cissoid.hpp"
 
 using namespace cissoid1;
 

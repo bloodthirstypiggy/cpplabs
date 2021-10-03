@@ -1,4 +1,4 @@
-#include "cissoid.hpp"
+#include "classcissoid/cissoid.hpp"
 using namespace cissoid1;
 //Мы хотим изначально задать для объекта класса кривая x, a, (fi?)
 

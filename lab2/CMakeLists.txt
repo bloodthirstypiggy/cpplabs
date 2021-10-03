@@ -3,16 +3,15 @@ project(lab2)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(.)
 
-enable_testing()
 
-add_executable(lab2
-        cissoid.cpp
-        cissoid.hpp
-        main.cpp
-        test.cpp)
 
 add_subdirectory(gtest/googletest-master)
+add_subdirectory(classcissoid)
 
-target_link_libraries(lab2 gtest gtest_main)
+add_executable(lab2
+        main.cpp
+        test.cpp
+      test.hpp)
+
+target_link_libraries(lab2 gtest gtest_main classcissoid)
