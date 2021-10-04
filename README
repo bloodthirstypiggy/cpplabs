@@ -1,0 +1,2 @@
+Для того чтобы 3 лаба запустилась clone:
+	git clone --recurse-submodules
