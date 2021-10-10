@@ -59,8 +59,8 @@ TEST_F(CissoidTest, getVolume)
    // EXPECT_EQ(  308425, cissoid->getVolume(t_x));
 }
 
-int main(int argc, char* argv[])
+/*int main(int argc, char* argv[])
 {
 	testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
-}
+}*/

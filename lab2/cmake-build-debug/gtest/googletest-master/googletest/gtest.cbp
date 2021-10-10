@@ -5,7 +5,7 @@
 		<Option title="gtest"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\gtest\;CMake Files\gtest\googletest-master\;CMake Files\gtest\googletest-master\googlemock\;CMake Files\gtest\googletest-master\googlemock\cmake\;CMake Files\gtest\googletest-master\googletest\;CMake Files\gtest\googletest-master\googletest\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\classcissoid\;CMake Files\gtest\;CMake Files\gtest\googletest-master\;CMake Files\gtest\googletest-master\googlemock\;CMake Files\gtest\googletest-master\googlemock\cmake\;CMake Files\gtest\googletest-master\googletest\;CMake Files\gtest\googletest-master\googletest\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/piggy/Desktop/cpplabs/lab2/cmake-build-debug/gtest/googletest-master/googletest"/>
@@ -24,7 +24,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/piggy/Desktop/cpplabs/lab2/."/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest/include"/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -49,7 +48,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/piggy/Desktop/cpplabs/lab2/."/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest/include"/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -74,7 +72,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/piggy/Desktop/cpplabs/lab2/."/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest/include"/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -99,7 +96,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/piggy/Desktop/cpplabs/lab2/."/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest/include"/>
 					<Add directory="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -126,6 +122,9 @@
 		</Unit>
 		<Unit filename="/home/piggy/Desktop/cpplabs/lab2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/piggy/Desktop/cpplabs/lab2/classcissoid/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\classcissoid\"/>
 		</Unit>
 		<Unit filename="/home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\gtest\googletest-master\"/>

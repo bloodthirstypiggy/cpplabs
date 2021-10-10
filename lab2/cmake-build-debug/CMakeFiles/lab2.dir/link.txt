@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/lab2.dir/cissoid.cpp.o CMakeFiles/lab2.dir/main.cpp.o CMakeFiles/lab2.dir/test.cpp.o -o lab2  /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 
+/usr/bin/c++ -g CMakeFiles/lab2.dir/main.cpp.o CMakeFiles/lab2.dir/test.cpp.o -o lab2  lib/libgtestd.a lib/libgtest_maind.a classcissoid/libclasscissoid.a lib/libgtestd.a -lpthread 

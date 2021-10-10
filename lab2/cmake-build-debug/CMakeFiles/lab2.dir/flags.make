@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/piggy/Desktop/cpplabs/lab2/.
+CXX_INCLUDES = -isystem /home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest/include -isystem /home/piggy/Desktop/cpplabs/lab2/gtest/googletest-master/googletest
 
-CXX_FLAGS = -g -std=gnu++14
+CXX_FLAGS = -g -std=gnu++17
 
