@@ -1,7 +1,7 @@
 #include "vector.cpp"
 #include <iostream>
 
-namespace vector {
+namespace vector1 {
 vector() {
   n = 0;
   for (int i = 0; i < N; i++) {

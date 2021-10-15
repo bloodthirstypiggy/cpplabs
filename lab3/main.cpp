@@ -1,6 +1,17 @@
-#include "/ternaryvector/vector.hpp"
+#include "ternaryvector/vector.hpp"
 #include <iostream>
-using namespace vector;
+using namespace vector1;
+
+
+
+
+ int getNum(int& a)
+    {
+        std::cin >> a;
+        if (!std::cin.good()) // обнаружена ошибка ввода или конец файла
+            return 0;
+        return 1;
+    }
 
 void menu(vector vector1, vector vector2) {
   bool cont = true;
@@ -30,7 +41,7 @@ void menu(vector vector1, vector vector2) {
       std::cout << "vector2 n is:" << vector2.getVector() << "and array is"
                 << vector2.getVectorArray() << std::endl;
       break;
-    case 2:
+  /*  case 2:
       int ch;
       int cho;
       std::cout << "enter number of vector you want to set: 1 or 2"
@@ -118,7 +129,7 @@ void menu(vector vector1, vector vector2) {
       break;
     case 8:
 
-      break;
+      break;*/
 
     default:
       break;
@@ -128,4 +139,19 @@ void menu(vector vector1, vector vector2) {
       break;
     }
   }
+
+
+
+
+
+}
+
+
+
+
+int main(){
+  vector vector1;
+  vector vector2;
+  menu(vector1, vector2);
+  return 0;
 }

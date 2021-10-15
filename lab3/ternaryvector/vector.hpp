@@ -14,7 +14,7 @@
 
 */
 
-namespace vector {
+namespace vector1 {
 
 class vector {
 private:
@@ -39,12 +39,12 @@ public:
   void setVector(std::string change);
   // \brief methods
   void output() const;
-  vector or (vector vector2) const;
-  vector and (vector vector2) const;
+  vector or_vector (vector vector2) const;
+  vector and_vector (vector vector2) const;
   bool equal(vector vector2) const;
   vector invert() const;
   int analysis() const;
-}
+};
 
 } // namespace vector
 #endif
