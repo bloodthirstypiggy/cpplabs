@@ -1,49 +1,35 @@
-#include "vector.cpp"
+#include "vector.hpp"
 #include <iostream>
 
+
 namespace vector1 {
-vector() {
-  n = 0;
-  for (int i = 0; i < N; i++) {
-    array[i] = '-1';
-  }
-  array[0] = '\n';
-};
-vector(int a) {
-  n = a;
-  for (int i = 0; i < a; i++) {
-    arrray[i] = '2';
-  }
-  for (int j = a; j < N; j++) {
-    array[j] = '-1';
-  }
-  array[n] = '\n';
-};
+t_vector::t_vector() {
 
-vector(std::string string) {
-  n = 0;
-  i = 0;
-  while (string[i] != '\n') {
-    array[i] = string[i];
-    i++;
-    n++;
-  }
-  array[n] = '\n';
 };
-int getVector() const{
-  return n;
-}
-char getVectorArray() const{
-  return array;//????
-}
-// \brief нам дали никак не обработанную строку, мы должны проверить чтобы символов было не больше N, если их больше выбросить исключение
-
-void setVector(std::string change){
-  int i = 0;
-  while (string[i] != '\n')
+t_vector::t_vector(int a) {
+  for (int i; i<a; i++)
   {
-    i++;
+    array[i]=2;
   }
+
+};
+
+t_vector::t_vector(char* str) {
+  n=0;
+  for(int i = 0; i<n;i++)
+  {
+    array[i] = str[i];
+  }
+};
+int t_vector::get_vector() const{
+
+}
+char* t_vector::get_vector_Array() const{
+  return array;
+}
+
+void t_vector::set_vector(std::string change){
+
 }
 
 

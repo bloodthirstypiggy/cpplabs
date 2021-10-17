@@ -13,7 +13,7 @@ using namespace vector1;
         return 1;
     }
 
-void menu(vector vector1, vector vector2) {
+void menu(t_vector vector1, t_vector vector2) {
   bool cont = true;
   while (cont) {
     std::cout << "\n\tMENU:1.get vector1 and vector2"
@@ -36,10 +36,10 @@ void menu(vector vector1, vector vector2) {
 
     switch (choice) {
     case 1:
-      std::cout << "vector1 n is:" << vector1.getVector() << "and array is"
-                << vector1.getVectorArray() << std::endl;
-      std::cout << "vector2 n is:" << vector2.getVector() << "and array is"
-                << vector2.getVectorArray() << std::endl;
+      std::cout << "vector1 n is:" << vector1.get_vector() << "and array is"
+                << vector1.get_vector_Array() << std::endl;
+      std::cout << "vector2 n is:" << vector2.get_vector() << "and array is"
+                << vector2.get_vector_Array() << std::endl;
       break;
   /*  case 2:
       int ch;
@@ -150,8 +150,10 @@ void menu(vector vector1, vector vector2) {
 
 
 int main(){
-  vector vector1;
-  vector vector2;
+  char* a = "hello";
+  t_vector vector1(a);
+
+  t_vector vector2;
   menu(vector1, vector2);
   return 0;
 }

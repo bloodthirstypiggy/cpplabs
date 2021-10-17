@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/piggy/Desktop/cpplabs/lab3/ternaryvector/vector.cpp
+vector.hpp
+/home/piggy/Desktop/cpplabs/lab3/ternaryvector/vector.hpp
+iostream
+-
+
+/home/piggy/Desktop/cpplabs/lab3/ternaryvector/vector.hpp
+iostream
+-
+string
+-
+

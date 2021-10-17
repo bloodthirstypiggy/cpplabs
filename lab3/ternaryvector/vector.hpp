@@ -16,34 +16,34 @@
 
 namespace vector1 {
 
-class vector {
+class t_vector {
 private:
   static const int N = 10;
   int n;
-  char array[N + 1]; //для \n
+  char* array = new char[N + 1]; //для \n
 
 public:
   // \brief стандартный конструктор, на всякий случай заполним его -1, чтобы мы
   // могли понять, если какой либо из элементов не заполниться
-  vector();
+  t_vector();
 
   // \brief конструктор, записывается а, по кол-ву а в массив записывается
   // несколько подряд идущих 2, остальное заполняется -1
-  vector(int a);
+  t_vector(int a);
   // \brief конструктор, которому подается строка, он ее обрабатывает и загоняет
   // эту строку в массив char вектора
-  vector(std::string string);
+  t_vector(char* string);
   // \brief setters and getters
-  int getVector() const;
-  char getVectorArray() const;
-  void setVector(std::string change);
+  int get_vector() const;
+  char* get_vector_Array() const;
+  void set_vector(std::string change);
   // \brief methods
-  void output() const;
-  vector or_vector (vector vector2) const;
-  vector and_vector (vector vector2) const;
-  bool equal(vector vector2) const;
-  vector invert() const;
-  int analysis() const;
+  void output_vector() const;
+  t_vector or_vector (t_vector vector2) const;
+  t_vector and_vector (t_vector vector2) const;
+  bool equal_vector(t_vector vector2) const;
+  t_vector invert_vector() const;
+  int analysis_vector() const;
 };
 
 } // namespace vector
