@@ -2,3 +2,5 @@ lab1example
 cmake-build-debug
 .vscode
 build
+vector.hpp.gch
+
