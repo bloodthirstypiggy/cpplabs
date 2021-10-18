@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ternaryvector.dir/vector.cpp.o"
+  "CMakeFiles/ternaryvector.dir/vector.cpp.o.d"
   "libternaryvector.a"
   "libternaryvector.pdb"
 )

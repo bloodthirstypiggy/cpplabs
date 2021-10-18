@@ -36,11 +36,13 @@ public:
   // \brief setters and getters
   int get_vector() const;
   char* get_vector_Array() const;
-  void set_vector(std::string change);
+  void set_vector(char* change);
+  void print_vector_Array();
+  void diff_vector(t_vector vector_2);
   // \brief methods
   void output_vector() const;
-  t_vector or_vector (t_vector vector2) const;
-  t_vector and_vector (t_vector vector2) const;
+  void or_vector (t_vector vector2) const;
+  void and_vector (t_vector vector2) const;
   bool equal_vector(t_vector vector2) const;
   t_vector invert_vector() const;
   int analysis_vector() const;

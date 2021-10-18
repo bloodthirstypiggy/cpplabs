@@ -1,2 +1,2 @@
-/usr/bin/ar qc libternaryvector.a  CMakeFiles/ternaryvector.dir/vector.cpp.o
-/usr/bin/ranlib libternaryvector.a
+/bin/x86_64-linux-gnu-ar qc libternaryvector.a CMakeFiles/ternaryvector.dir/vector.cpp.o
+/bin/x86_64-linux-gnu-ranlib libternaryvector.a
