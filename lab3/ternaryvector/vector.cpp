@@ -5,10 +5,6 @@
 namespace vector1 {
 t_vector::t_vector() {
   n=0;
-  for(int i=0;i<N;i++)
-  {
-    array[i] ='3';
-  }
 };
 t_vector::t_vector(int a) {
   int i = 0;
@@ -19,18 +15,8 @@ t_vector::t_vector(int a) {
   n=a;
 };
 
-t_vector::t_vector(char* str) { //??? no working
-  int j = 0;
+t_vector::t_vector(char* str) {
   
-  int i = 0;
-  for(i; i<n;i++)
-  {
-    array[i] = str[i];
-    if (array[i] == '\n')
-      break;
-  }
-  array[i]='\n';
- n = i+1;
 };
 int t_vector::get_vector() const{
   return n;

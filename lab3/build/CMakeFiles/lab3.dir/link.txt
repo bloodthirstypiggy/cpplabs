@@ -1,1 +1,1 @@
-/bin/x86_64-linux-gnu-g++-9 -g CMakeFiles/lab3.dir/main.cpp.o -o lab3  ternaryvector/libternaryvector.a 
+/bin/x86_64-linux-gnu-g++-9 -g CMakeFiles/lab3.dir/main.cpp.o CMakeFiles/lab3.dir/tests/test.cpp.o -o lab3  ternaryvector/libternaryvector.a lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a -lpthread 
