@@ -133,11 +133,11 @@ void menu(t_vector vector1, t_vector vector2) {
   }
 }
 
-/*int main(){
+int main(){
   int a =2;
   int b = 3;
   t_vector vector1(a);
   t_vector vector2(b);
   menu(vector1, vector2);
   return 0;
-}*/
+}
