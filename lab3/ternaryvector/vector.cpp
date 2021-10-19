@@ -36,7 +36,16 @@ int t_vector::get_vector() const{
   return n;
 
 }
-char* t_vector::get_vector_Array() const{
+
+void t_vector::test()
+{
+  for(int i = 0; i<n; i++){
+  std::cout << array[i] << std::endl;
+  std::cout << "---------------" << std::endl;
+  std::cout << array[i] << std:: endl;}
+}
+
+const char* t_vector::get_vector_Array() const{
   return array;
 }
 
@@ -48,36 +57,31 @@ void t_vector::print_vector_Array() {
 
 void t_vector::set_vector(char* change){
   n = strlen(change);
-  array = change;
+  int i = 0;
+  for(i; i<n;i++)
+  {
+    array[i] = change[i];
+  }
+  array[i] = '\0';
+
 }
 
-void t_vector::diff_vector(t_vector vector_2)
+void t_vector::diff_vector(t_vector other_vector)
 {
-  int len_v1 = strlen(array);
-int  len_v2 = strlen(vector_2.array);
+  int len_v1 = n;
+int  len_v2 = other_vector.n;
 int len_dif = len_v1 - len_v2;
+int i = 0;
+int j = 0;
 if (len_dif != 0)
 {
-  if (len_dif > 0)
-  {
-    char differ [abs(len_dif)];
-    for(int i =0; i < abs(len_dif); i++)
+  if (len_dif <0){
+    for(j; j<abs(len_dif); j++)
     {
-      differ[i] = 'X';
+      array[n] = 'X';
+      n +=1;
     }
-
-    strcat(vector_2.array,differ);
-    vector_2.n += abs(len_dif);
-  }
-  else{
-    char differ [abs(len_dif)];
-    for(int i =0; i < abs(len_dif); i++)
-    {
-      differ[i] = 'X';
-    }
-
-    strcat(array,differ);
-    n = n + abs(len_dif);
+    array[n] = '\0';
   }
 }
 }
@@ -85,6 +89,8 @@ if (len_dif != 0)
 void t_vector::or_vector(t_vector vector_2) const
 {
  char result [n];
+ for (int k = 0; k<n;k++)
+  result[k] = 'X';
 for (int j = 0; j < n; j++){
   if (array[j] == '0')
   {
@@ -138,6 +144,34 @@ for (int j = 0; j < n; j++){
 std::cout << result << std::endl;
 }
 
+bool t_vector::equal_vector(t_vector vector2) const{
+  for (int i; i<n;i++)
+  {
+    if (array[i] != vector2.array[i])
+      return false;
+  }
+  return true;
+}
 
+void t_vector::invert_vector(){
+  for(int i = 0; i < n; i++)
+  {
+    if (array[i] == '0')
+      array[i] = '1';
+    else if (array[i] == '1')
+      array[i] = '0';
+  }
+}
+
+bool t_vector::analysis_vector() const{
+  for (int i = 0; i<n; i++)
+  {
+    if (array[i] == 'X');
+      return false;
+    return true;
+  }
+
+
+}
 
 } // namespace vector

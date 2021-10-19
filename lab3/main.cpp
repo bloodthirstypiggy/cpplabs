@@ -70,72 +70,64 @@ void menu(t_vector vector1, t_vector vector2) {
       break;}
     case 3:{
       std::cout << "Okey, you want to or two vectors,lets go" << std::endl;
-      vector1.diff_vector(vector2);
+      if (vector1.get_vector() > vector2.get_vector())
+        {vector2.diff_vector(vector1);}
+      else
+        {vector1.diff_vector(vector2);}
       vector1.or_vector(vector2);
 
 
       break;}
     case 4:
       std::cout << "Okey, you want to and two vectors,lets go" << std::endl;
-      vector1.diff_vector(vector2);
+      if (vector1.get_vector() > vector2.get_vector())
+        {vector2.diff_vector(vector1);}
+      else
+        {vector1.diff_vector(vector2);}
       vector1.and_vector(vector2);
 
       break;
-  /*  case 5:
+    case 5:{
       std::cout << "Okey, you want to equal two vectors, lets go" << std::endl;
-
-      bool result = vector1.equal(vector2);
+      if (vector1.get_vector() > vector2.get_vector())
+        {vector2.diff_vector(vector1);}
+      else
+        {vector1.diff_vector(vector2);}
+      bool result = vector1.equal_vector(vector2);
       std::cout << "result is:" << bool(result) << std::endl;
-
+    }
       break;
     case 6:
-      int ch;
-      int cho;
-      std::cout << "enter number of vector you want to set: 1 or 2"
-                << std::endl;
-      while (true) {
-        cho = -1;
-        ch = getNum(cho);
-        if (cho != 1 | cho != 2 | ch != 1) //? no getnum
-          break;
-        std::cout << "TRY AGAIN!" << std::endl;
-      }
-      std::cout << "Okey, you want to invert vector number " << cho << "lets go"
-                << std::endl;
-      vector result;
-      if (cho == 1)
-        result = vector1.invert();
-      else
-        result = vector2.invert();
-      std::cout << "here it is" << result.output() << std::endl;
-      break;
+    {
+      std::cout << "Okey, print vector you want to invert" << std::endl;
+      int v;
+      std::cin >> v;
+      if (v == 1)
+        vector1.invert_vector();
+      else if (v == 2)
+        vector2.invert_vector();
+        break;}
     case 7:
-      bool result;
-      std::cout << "okey you wanna know analysis of vector, first enter what "
-                   "vector you want to analyze" std::endl;
-      int ch;
-      int cho;
-      std::cout << "enter number of vector you want to set: 1 or 2"
-                << std::endl;
-      while (true) {
-        cho = -1;
-        ch = getNum(cho);
-        if (cho != 1 | cho != 2 | ch != 1) //? no getnum
-          break;
-        std::cout << "TRY AGAIN!" << std::endl;
-      }
-      std::cout << "Okey, you want to analyze vector number " << cho
-                << "lets go" << std::endl;
-      if (cho == 1)
-        result = vector1.analyze();
-      else
-        result = vector2.analyze();
-      std::cout << "here it is" << result << std::endl;
-
-      break;
+      {
+          std::cout << "Okey, print vector you want to analyze" << std::endl;
+      int v;
+      std::cin >> v;
+      if (v == 1)
+        std::cout << vector1.analysis_vector() << std::endl;
+      else if (v == 2)
+        std::cout << vector2.analysis_vector() << std::endl;
+      
+      break;}
     case 8:
+    if (vector1.get_vector() > vector2.get_vector())
+      vector2.diff_vector(vector1);
+    else
+      vector1.diff_vector(vector2);
+      break;
 
-      break;*/
+      case 9:
+    vector1.test();
+      break;
 
     default:
     return;

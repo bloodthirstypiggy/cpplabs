@@ -20,7 +20,7 @@ class t_vector {
 private:
   static const int N = 10;
   int n;
-  char* array = new char[N + 1]; //для \n
+  char array[N+1];
 
 public:
   // \brief стандартный конструктор, на всякий случай заполним его -1, чтобы мы
@@ -35,17 +35,18 @@ public:
   t_vector(char* string);
   // \brief setters and getters
   int get_vector() const;
-  char* get_vector_Array() const;
+  const char* get_vector_Array() const;
   void set_vector(char* change);
   void print_vector_Array();
   void diff_vector(t_vector vector_2);
+  void invert_vector();
   // \brief methods
+  void test();
   void output_vector() const;
   void or_vector (t_vector vector2) const;
   void and_vector (t_vector vector2) const;
   bool equal_vector(t_vector vector2) const;
-  t_vector invert_vector() const;
-  int analysis_vector() const;
+  bool analysis_vector() const;
 };
 
 } // namespace vector
