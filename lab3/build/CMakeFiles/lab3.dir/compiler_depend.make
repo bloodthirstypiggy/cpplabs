@@ -498,8 +498,11 @@ CMakeFiles/lab3.dir/tests/test.cpp.o: ../tests/test.cpp \
   ../googletest/googletest/include/gtest/gtest_prod.h \
   ../googletest/googletest/include/gtest/gtest-typed-test.h \
   ../googletest/googletest/include/gtest/gtest_pred_impl.h \
-  ../ternaryvector/vector.hpp
+  ../ternaryvector/vector.hpp \
+  ../tests/test.hpp
 
+
+../tests/test.hpp:
 
 ../googletest/googletest/include/gtest/gtest-typed-test.h:
 
