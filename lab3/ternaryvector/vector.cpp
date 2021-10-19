@@ -23,13 +23,6 @@ int t_vector::get_vector() const{
 
 }
 
-void t_vector::test()
-{
-  for(int i = 0; i<n; i++){
-  std::cout << array[i] << std::endl;
-  std::cout << "---------------" << std::endl;
-  std::cout << array[i] << std:: endl;}
-}
 
 const char* t_vector::get_vector_Array() const{
   return array;
@@ -42,7 +35,13 @@ void t_vector::print_vector_Array() {
 }
 
 void t_vector::set_vector(char* change){
+  try{
   n = strlen(change);
+  if (n > 10)
+  {throw "its too much";}}
+  catch(const char* exception){
+    std::cerr << "Error: " << exception << '\n';
+  }
   int i = 0;
   for(i; i<n;i++)
   {

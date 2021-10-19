@@ -64,7 +64,7 @@ void menu(t_vector vector1, t_vector vector2) {
       if (res_2 == 1)
         vector1.set_vector(str);
       else if (res_2 == 2)
-        vector2.set_vector(str); //добавить обработку ошибок
+        vector2.set_vector(str); 
       break;
     }
     case 3: {
@@ -124,10 +124,6 @@ void menu(t_vector vector1, t_vector vector2) {
         vector2.diff_vector(vector1);
       else
         vector1.diff_vector(vector2);
-      break;
-
-    case 9:
-      vector1.test();
       break;
 
     default:
