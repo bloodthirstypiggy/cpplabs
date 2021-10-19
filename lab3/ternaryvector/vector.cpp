@@ -151,12 +151,12 @@ void t_vector::invert_vector(){
 bool t_vector::analysis_vector() const{
   for (int i = 0; i<n; i++)
   {
-    if (array[i] == 'X');
+    if (array[i] == 'X')
       return false;
-    return true;
+    
   }
-
+return true;
 
 }
 
-} // namespace vector
+} // namespace vector | & == ~ 

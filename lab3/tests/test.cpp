@@ -24,7 +24,7 @@ TEST_F(t_vectorTest, SettingTests)
 TEST_F(t_vectorTest, GettingTests)
 {
 
-    char text1[4] = {1,1,1,1};
+    char text1[4] = {'1','1','1','1'};
     vector_1.set_vector(text1);                                                                                                                                                                                   
     EXPECT_EQ(vector_1.get_vector(), 4);
     EXPECT_NO_THROW(vector_1.print_vector_Array());

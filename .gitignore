@@ -2,6 +2,6 @@ lab1example
 cmake-build-debug
 .vscode
 build
-lab3/ternaryvector/vector.hpp.gch
+ternaryvector/vector.hpp.gch
 lab3/build
 
