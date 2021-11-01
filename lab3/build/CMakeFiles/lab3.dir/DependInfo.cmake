@@ -8,15 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/piggy/Desktop/cpplabs/lab3/main.cpp" "CMakeFiles/lab3.dir/main.cpp.o" "gcc" "CMakeFiles/lab3.dir/main.cpp.o.d"
-  "/home/piggy/Desktop/cpplabs/lab3/tests/test.cpp" "CMakeFiles/lab3.dir/tests/test.cpp.o" "gcc" "CMakeFiles/lab3.dir/tests/test.cpp.o.d"
+  "/home/piggy/Downloads/cpplabs/lab3/main.cpp" "CMakeFiles/lab3.dir/main.cpp.o" "gcc" "CMakeFiles/lab3.dir/main.cpp.o.d"
+  "/home/piggy/Downloads/cpplabs/lab3/tests/test.cpp" "CMakeFiles/lab3.dir/tests/test.cpp.o" "gcc" "CMakeFiles/lab3.dir/tests/test.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/piggy/Desktop/cpplabs/lab3/build/ternaryvector/CMakeFiles/ternaryvector.dir/DependInfo.cmake"
-  "/home/piggy/Desktop/cpplabs/lab3/build/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/home/piggy/Desktop/cpplabs/lab3/build/googletest/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "/home/piggy/Downloads/cpplabs/lab3/build/ternaryvector/CMakeFiles/ternaryvector.dir/DependInfo.cmake"
+  "/home/piggy/Downloads/cpplabs/lab3/build/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/piggy/Downloads/cpplabs/lab3/build/googletest/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

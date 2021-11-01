@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/piggy/Desktop/cpplabs/lab3
+CMAKE_SOURCE_DIR = /home/piggy/Downloads/cpplabs/lab3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/piggy/Desktop/cpplabs/lab3/build
+CMAKE_BINARY_DIR = /home/piggy/Downloads/cpplabs/lab3/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/piggy/Desktop/cpplabs/lab3/build/CMakeFiles /home/piggy/Desktop/cpplabs/lab3/build/ternaryvector//CMakeFiles/progress.marks
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/piggy/Desktop/cpplabs/lab3/build/CMakeFiles 0
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/piggy/Downloads/cpplabs/lab3/build/CMakeFiles /home/piggy/Downloads/cpplabs/lab3/build/ternaryvector//CMakeFiles/progress.marks
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/piggy/Downloads/cpplabs/lab3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/clean
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/preinstall
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/preinstall
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 ternaryvector/CMakeFiles/ternaryvector.dir/rule:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/CMakeFiles/ternaryvector.dir/rule
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ternaryvector/CMakeFiles/ternaryvector.dir/rule
 .PHONY : ternaryvector/CMakeFiles/ternaryvector.dir/rule
 
 # Convenience name for target.
@@ -172,7 +172,7 @@ ternaryvector: ternaryvector/CMakeFiles/ternaryvector.dir/rule
 
 # fast build rule for target.
 ternaryvector/fast:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/build
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/build
 .PHONY : ternaryvector/fast
 
 vector.o: vector.cpp.o
@@ -180,7 +180,7 @@ vector.o: vector.cpp.o
 
 # target to build an object file
 vector.cpp.o:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.o
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.o
 .PHONY : vector.cpp.o
 
 vector.i: vector.cpp.i
@@ -188,7 +188,7 @@ vector.i: vector.cpp.i
 
 # target to preprocess a source file
 vector.cpp.i:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.i
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.i
 .PHONY : vector.cpp.i
 
 vector.s: vector.cpp.s
@@ -196,7 +196,7 @@ vector.s: vector.cpp.s
 
 # target to generate assembly for a file
 vector.cpp.s:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.s
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(MAKE) $(MAKESILENT) -f ternaryvector/CMakeFiles/ternaryvector.dir/build.make ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.s
 .PHONY : vector.cpp.s
 
 # Help Target
@@ -226,6 +226,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

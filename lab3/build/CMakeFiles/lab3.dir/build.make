@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/piggy/Desktop/cpplabs/lab3
+CMAKE_SOURCE_DIR = /home/piggy/Downloads/cpplabs/lab3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/piggy/Desktop/cpplabs/lab3/build
+CMAKE_BINARY_DIR = /home/piggy/Downloads/cpplabs/lab3/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/lab3.dir/depend.make
@@ -72,30 +72,30 @@ include CMakeFiles/lab3.dir/flags.make
 CMakeFiles/lab3.dir/main.cpp.o: CMakeFiles/lab3.dir/flags.make
 CMakeFiles/lab3.dir/main.cpp.o: ../main.cpp
 CMakeFiles/lab3.dir/main.cpp.o: CMakeFiles/lab3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piggy/Desktop/cpplabs/lab3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab3.dir/main.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab3.dir/main.cpp.o -MF CMakeFiles/lab3.dir/main.cpp.o.d -o CMakeFiles/lab3.dir/main.cpp.o -c /home/piggy/Desktop/cpplabs/lab3/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piggy/Downloads/cpplabs/lab3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab3.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab3.dir/main.cpp.o -MF CMakeFiles/lab3.dir/main.cpp.o.d -o CMakeFiles/lab3.dir/main.cpp.o -c /home/piggy/Downloads/cpplabs/lab3/main.cpp
 
 CMakeFiles/lab3.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/main.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piggy/Desktop/cpplabs/lab3/main.cpp > CMakeFiles/lab3.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piggy/Downloads/cpplabs/lab3/main.cpp > CMakeFiles/lab3.dir/main.cpp.i
 
 CMakeFiles/lab3.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/main.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Desktop/cpplabs/lab3/main.cpp -o CMakeFiles/lab3.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Downloads/cpplabs/lab3/main.cpp -o CMakeFiles/lab3.dir/main.cpp.s
 
 CMakeFiles/lab3.dir/tests/test.cpp.o: CMakeFiles/lab3.dir/flags.make
 CMakeFiles/lab3.dir/tests/test.cpp.o: ../tests/test.cpp
 CMakeFiles/lab3.dir/tests/test.cpp.o: CMakeFiles/lab3.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piggy/Desktop/cpplabs/lab3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab3.dir/tests/test.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab3.dir/tests/test.cpp.o -MF CMakeFiles/lab3.dir/tests/test.cpp.o.d -o CMakeFiles/lab3.dir/tests/test.cpp.o -c /home/piggy/Desktop/cpplabs/lab3/tests/test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piggy/Downloads/cpplabs/lab3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab3.dir/tests/test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lab3.dir/tests/test.cpp.o -MF CMakeFiles/lab3.dir/tests/test.cpp.o.d -o CMakeFiles/lab3.dir/tests/test.cpp.o -c /home/piggy/Downloads/cpplabs/lab3/tests/test.cpp
 
 CMakeFiles/lab3.dir/tests/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/tests/test.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piggy/Desktop/cpplabs/lab3/tests/test.cpp > CMakeFiles/lab3.dir/tests/test.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piggy/Downloads/cpplabs/lab3/tests/test.cpp > CMakeFiles/lab3.dir/tests/test.cpp.i
 
 CMakeFiles/lab3.dir/tests/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/tests/test.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Desktop/cpplabs/lab3/tests/test.cpp -o CMakeFiles/lab3.dir/tests/test.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piggy/Downloads/cpplabs/lab3/tests/test.cpp -o CMakeFiles/lab3.dir/tests/test.cpp.s
 
 # Object files for target lab3
 lab3_OBJECTS = \
@@ -109,11 +109,11 @@ lab3: CMakeFiles/lab3.dir/main.cpp.o
 lab3: CMakeFiles/lab3.dir/tests/test.cpp.o
 lab3: CMakeFiles/lab3.dir/build.make
 lab3: ternaryvector/libternaryvector.a
-lab3: lib/libgtestd.a
-lab3: lib/libgtest_maind.a
-lab3: lib/libgtestd.a
+lab3: lib/libgtest.a
+lab3: lib/libgtest_main.a
+lab3: lib/libgtest.a
 lab3: CMakeFiles/lab3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piggy/Desktop/cpplabs/lab3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piggy/Downloads/cpplabs/lab3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -125,6 +125,6 @@ CMakeFiles/lab3.dir/clean:
 .PHONY : CMakeFiles/lab3.dir/clean
 
 CMakeFiles/lab3.dir/depend:
-	cd /home/piggy/Desktop/cpplabs/lab3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/piggy/Desktop/cpplabs/lab3 /home/piggy/Desktop/cpplabs/lab3 /home/piggy/Desktop/cpplabs/lab3/build /home/piggy/Desktop/cpplabs/lab3/build /home/piggy/Desktop/cpplabs/lab3/build/CMakeFiles/lab3.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/piggy/Downloads/cpplabs/lab3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/piggy/Downloads/cpplabs/lab3 /home/piggy/Downloads/cpplabs/lab3 /home/piggy/Downloads/cpplabs/lab3/build /home/piggy/Downloads/cpplabs/lab3/build /home/piggy/Downloads/cpplabs/lab3/build/CMakeFiles/lab3.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lab3.dir/depend
 

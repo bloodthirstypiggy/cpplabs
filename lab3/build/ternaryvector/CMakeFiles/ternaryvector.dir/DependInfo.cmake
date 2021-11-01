@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/piggy/Desktop/cpplabs/lab3/ternaryvector/vector.cpp" "ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.o" "gcc" "ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.o.d"
+  "/home/piggy/Downloads/cpplabs/lab3/ternaryvector/vector.cpp" "ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.o" "gcc" "ternaryvector/CMakeFiles/ternaryvector.dir/vector.cpp.o.d"
   )
 
 # Targets to which this target links.
