@@ -28,20 +28,18 @@ const char* t_vector::get_vector_Array() const{
   return array;
 }
 
-void t_vector::print_vector_Array() {
-  int i = 0;
+/*void t_vector::print_vector_Array() {//френд функцию?
   std::cout << array << std::endl;
-  i++;
+}*/
+
+void print_vector_array(t_vector & vector){
+  std::cout << vector.array << std::endl;
 }
 
+
 void t_vector::set_vector(char* change){
-  try{
+  
   n = strlen(change);
-  if (n > 10)
-  {throw "its too much";}}
-  catch(const char* exception){
-    std::cerr << "Error: " << exception << '\n';
-  }
   int i = 0;
   for(i; i<n;i++)
   {
@@ -71,9 +69,8 @@ if (len_dif != 0)
 }
 }
 
-void t_vector::or_vector(t_vector vector_2) const
+void t_vector::or_vector(t_vector vector_2, char* result) const
 {
- char result [n];
  for (int k = 0; k<n;k++)
   result[k] = 'X';
 for (int j = 0; j < n; j++){
@@ -98,12 +95,10 @@ for (int j = 0; j < n; j++){
   }
 }
 
-std::cout << result << std::endl;
 }
 
-void t_vector::and_vector(t_vector vector_2) const
+void t_vector::and_vector(t_vector vector_2, char* result) const
 {
- char result [n];
 for (int j = 0; j < n; j++){
   if (array[j] == '0')
   {
@@ -126,7 +121,7 @@ for (int j = 0; j < n; j++){
   }
 }
 
-std::cout << result << std::endl;
+
 }
 
 bool t_vector::equal_vector(t_vector vector2) const{
@@ -158,5 +153,11 @@ bool t_vector::analysis_vector() const{
 return true;
 
 }
+
+t_vector operator | (t_vector vector1, t_vector vector2)
+{
+  
+}
+
 
 } // namespace vector | & == ~ 

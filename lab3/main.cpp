@@ -48,10 +48,10 @@ void menu(t_vector vector1, t_vector vector2) {
     case 1:
       std::cout << "vector1 n is:" << vector1.get_vector() << " and array is "
                 << std::endl;
-      vector1.print_vector_Array();
+      print_vector_array(vector1);
       std::cout << "vector2 n is:" << vector2.get_vector() << " and array is "
                 << std::endl;
-      vector2.print_vector_Array();
+      print_vector_array(vector2);
       break;
     case 2: {
 
@@ -74,20 +74,24 @@ void menu(t_vector vector1, t_vector vector2) {
       } else {
         vector1.diff_vector(vector2);
       }
-      vector1.or_vector(vector2);
+      char result [vector1.get_vector()];
+      vector1.or_vector(vector2,result);
+      std::cout << result << std::endl;
 
       break;
     }
-    case 4:
+    case 4:{
       std::cout << "Okey, you want to and two vectors,lets go" << std::endl;
       if (vector1.get_vector() > vector2.get_vector()) {
         vector2.diff_vector(vector1);
       } else {
         vector1.diff_vector(vector2);
       }
-      vector1.and_vector(vector2);
+      char result [vector1.get_vector()];
+      vector1.and_vector(vector2, result);
+      std::cout << result << std::endl;
 
-      break;
+      break;}
     case 5: {
       std::cout << "Okey, you want to equal two vectors, lets go" << std::endl;
       if (vector1.get_vector() > vector2.get_vector()) {

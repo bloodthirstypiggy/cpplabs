@@ -17,6 +17,7 @@
 namespace vector1 {
 
 class t_vector {
+  void friend print_vector_array(t_vector &);
 private:
   static const int N = 10;
   int n;
@@ -43,8 +44,8 @@ public:
   void diff_vector(t_vector vector_2);
   void invert_vector();
   // \brief methods
-  void or_vector (t_vector vector2) const;
-  void and_vector (t_vector vector2) const;
+  void or_vector (t_vector vector2, char* result) const;
+  void and_vector (t_vector vector2, char* result) const;
   bool equal_vector(t_vector vector2) const;
   // \brief возвращает тру если в векторе нет Х
   bool analysis_vector() const;
