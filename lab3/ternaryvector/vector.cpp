@@ -182,7 +182,7 @@ bool operator == (t_vector vector1, t_vector vector2)
       return result;
 }
 
-void operator ~ (t_vector vector)
+void operator ~ (t_vector & vector)
 {
       vector.invert_vector();
 }

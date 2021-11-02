@@ -14,6 +14,15 @@ template <class T> bool getNum(T &a) {
   return true;
 }
 
+void vectordiff( t_vector& vector1,t_vector& vector2)
+{
+  if (vector1.get_vector() > vector2.get_vector()) {
+        vector2.diff_vector(vector1);
+      } else {
+        vector1.diff_vector(vector2);
+      }
+}
+
 int getInt() {
   int a;
   while (true) {
@@ -69,30 +78,18 @@ void menu(t_vector vector1, t_vector vector2) {
     }
     case 3: {
       std::cout << "Okey, you want to or two vectors,lets go" << std::endl;
-      if (vector1.get_vector() > vector2.get_vector()) {
-        vector2.diff_vector(vector1);
-      } else {
-        vector1.diff_vector(vector2);
-      }
+      vectordiff(vector1, vector2);
       vector1 | vector2;
       break;
     }
     case 4:{
       std::cout << "Okey, you want to and two vectors,lets go" << std::endl;
-      if (vector1.get_vector() > vector2.get_vector()) {
-        vector2.diff_vector(vector1);
-      } else {
-        vector1.diff_vector(vector2);
-      }
+      vectordiff(vector1, vector2);
       vector1 & vector2;
       break;}
     case 5: {
       std::cout << "Okey, you want to equal two vectors, lets go" << std::endl;
-      if (vector1.get_vector() > vector2.get_vector()) {
-        vector2.diff_vector(vector1);
-      } else {
-        vector1.diff_vector(vector2);
-      }
+      vectordiff(vector1, vector2);
       bool result = vector1 == vector2;
       std::cout << result << std::endl;
     } break;
@@ -102,9 +99,9 @@ void menu(t_vector vector1, t_vector vector2) {
       std::cin >> v;
       
       if (v == 1)
-        vector1.invert_vector();
+        ~vector1;
       else if (v == 2)
-        vector2.invert_vector();
+        ~vector2;
       break;
     }
     case 7: {
@@ -118,13 +115,6 @@ void menu(t_vector vector1, t_vector vector2) {
 
       break;
     }
-    case 8:
-      if (vector1.get_vector() > vector2.get_vector())
-        vector2.diff_vector(vector1);
-      else
-        vector1.diff_vector(vector2);
-      break;
-
     default:
       return;
       break;
