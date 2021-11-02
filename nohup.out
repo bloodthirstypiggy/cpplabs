@@ -1,0 +1,4 @@
+
+(telegram-desktop:27179): Telegram-WARNING **: 18:37:21.094: Application has been built with foreign rlottie, animated emojis won't be colored to the selected pack.
+
+(telegram-desktop:27179): Telegram-WARNING **: 18:37:21.094: Application was built without embedded fonts, this may lead to font issues. On Debian-based systems, make sure you have the fonts-open-sans package installed

@@ -125,7 +125,7 @@ for (int j = 0; j < n; j++){
 }
 
 bool t_vector::equal_vector(t_vector vector2) const{
-  for (int i; i<n;i++)
+  for (int i = 0; i<n;i++)
   {
     if (array[i] != vector2.array[i])
       return false;
@@ -154,10 +154,40 @@ return true;
 
 }
 
-t_vector operator | (t_vector vector1, t_vector vector2)
+void operator | (t_vector vector1, t_vector vector2)
 {
-  
+      int forres = vector1.get_vector();
+      forres+=1;
+      char result [forres];
+      result[forres-1] = '\0';
+      vector1.or_vector(vector2,result);
+      std::cout << result << std::endl;
 }
+
+void operator & (t_vector vector1, t_vector vector2)
+{
+      int forres = vector1.get_vector();
+      forres+=1;
+      char result [forres];
+      result[forres-1] = '\0';
+      vector1.and_vector(vector2,result);
+      std::cout << result << std::endl;
+}
+
+bool operator == (t_vector vector1, t_vector vector2)
+{
+      
+      bool result;
+      result = vector1.equal_vector(vector2);
+      return result;
+}
+
+void operator ~ (t_vector vector)
+{
+      vector.invert_vector();
+}
+
+
 
 
 } // namespace vector | & == ~ 

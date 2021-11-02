@@ -74,10 +74,7 @@ void menu(t_vector vector1, t_vector vector2) {
       } else {
         vector1.diff_vector(vector2);
       }
-      char result [vector1.get_vector()];
-      vector1.or_vector(vector2,result);
-      std::cout << result << std::endl;
-
+      vector1 | vector2;
       break;
     }
     case 4:{
@@ -87,10 +84,7 @@ void menu(t_vector vector1, t_vector vector2) {
       } else {
         vector1.diff_vector(vector2);
       }
-      char result [vector1.get_vector()];
-      vector1.and_vector(vector2, result);
-      std::cout << result << std::endl;
-
+      vector1 & vector2;
       break;}
     case 5: {
       std::cout << "Okey, you want to equal two vectors, lets go" << std::endl;
@@ -99,13 +93,14 @@ void menu(t_vector vector1, t_vector vector2) {
       } else {
         vector1.diff_vector(vector2);
       }
-      bool result = vector1.equal_vector(vector2);
-      std::cout << "result is:" << bool(result) << std::endl;
+      bool result = vector1 == vector2;
+      std::cout << result << std::endl;
     } break;
     case 6: {
       std::cout << "Okey, print vector you want to invert" << std::endl;
       int v;
       std::cin >> v;
+      
       if (v == 1)
         vector1.invert_vector();
       else if (v == 2)

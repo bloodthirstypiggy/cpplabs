@@ -9,7 +9,7 @@ add_subdirectory(googletest)
 
 add_executable(lab3
         main.cpp
-        tests/test.cpp
+        
         )
 
-target_link_libraries(lab3 ternaryvector gtest gtest_main)
+target_link_libraries(lab3 ternaryvector)
