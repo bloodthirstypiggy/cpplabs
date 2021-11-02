@@ -8,6 +8,8 @@ t_vector::t_vector() {
 };
 t_vector::t_vector(int a) {
   int i = 0;
+  if (a > N)
+    throw 2;
   for (i; i<a; i++)
   {
     array[i]='X';
@@ -17,6 +19,12 @@ t_vector::t_vector(int a) {
 
 t_vector::t_vector(char* str) {
   
+    for (int i = 0; i < N; i++)
+    {
+      array[i] = str[i];
+      if (i>N)
+        throw 3;
+    }
 };
 int t_vector::get_vector() const{
   return n;

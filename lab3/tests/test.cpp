@@ -43,7 +43,7 @@ TEST_F(t_vectorTest, ORTests)
       } else {
         vector_1.diff_vector(vector_2);
       }
-    EXPECT_NO_THROW(vector_2.or_vector(vector_1));
+    
     
 }
 
@@ -59,7 +59,7 @@ TEST_F(t_vectorTest, ANDTests)
       } else {
         vector_1.diff_vector(vector_2);
       }
-    EXPECT_NO_THROW(vector_2.and_vector(vector_1));
+    
     
 }
 
