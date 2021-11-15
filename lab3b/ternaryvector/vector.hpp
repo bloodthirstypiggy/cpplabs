@@ -19,9 +19,9 @@ namespace vector1 {
 class t_vector {
   void friend print_vector_array(t_vector &);
   friend t_vector operator | (t_vector , t_vector );
-  friend void operator & (t_vector , t_vector );
+  friend t_vector operator & (t_vector , t_vector );
   friend bool operator == (t_vector , t_vector );
-  friend void operator ~ (t_vector &);
+  friend t_vector operator ~ (t_vector &);
 
 private:
   static const int N = 10;

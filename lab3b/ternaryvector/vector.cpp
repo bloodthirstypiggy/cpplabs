@@ -144,13 +144,32 @@ t_vector operator |(t_vector vector1, t_vector vector2) {
     return result_vector;
 }
 
-void operator&(t_vector vector1, t_vector vector2) {
+t_vector operator&(t_vector vector1, t_vector vector2) {
   int forres = vector1.get_vector();
   forres += 1;
   char result[forres];
   result[forres - 1] = '\0';
-  vector1.and_vector(vector2, result);
-  std::cout << result << std::endl;
+  for (int j = 0; j < vector1.n; j++) {
+    if (vector1.array[j] == '0') {
+      result[j] = '0';
+    } else if (vector1.array[j] == '1')
+      if (vector2.array[j] == '0')
+        result[j] = '0';
+      else if (vector2.array[j] == '1')
+        result[j] = '1';
+      else
+        result[j] = 'X';
+    else {
+      if (vector2.array[j] == '0')
+        result[j] = '0';
+      else if (vector2.array[j] == '1')
+        result[j] = '1';
+      else
+        result[j] = 'X';
+    }
+  }
+  t_vector result_vector(result);
+    return result_vector;
 }
 
 bool operator==(t_vector vector1, t_vector vector2) {
@@ -160,6 +179,15 @@ bool operator==(t_vector vector1, t_vector vector2) {
   return result;
 }
 
-void operator~(t_vector &vector) { vector.invert_vector(); }
+t_vector operator~(t_vector &vector1) {
+  t_vector vector = vector1;
+  for (int i = 0; i < vector.n; i++) {
+    if (vector.array[i] == '0')
+      vector.array[i] = '1';
+    else if (vector.array[i] == '1')
+      vector.array[i] = '0';
+  }
+  return vector;
+   }
 
 } // namespace vector1

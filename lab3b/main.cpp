@@ -115,10 +115,15 @@ void menu(t_vector vector1, t_vector vector2) {
       break;
     }
     case 4:{
-      std::cout << "Okey, you want to and two vectors,lets go" << std::endl;
+      std::cout << "Okey, you want to add two vectors,lets go" << std::endl;
       vectordiff(vector1, vector2);
-      vector1 & vector2;
-      break;}
+      t_vector* result_vector = new t_vector[1];
+      *result_vector = vector1 & vector2;
+      print_vector_array(*result_vector);
+      delete(result_vector);
+      
+      break;
+    }
     case 5: {
       std::cout << "Okey, you want to equal two vectors, lets go" << std::endl;
       vectordiff(vector1, vector2);
@@ -129,11 +134,16 @@ void menu(t_vector vector1, t_vector vector2) {
       std::cout << "Okey, print vector you want to invert" << std::endl;
       int v;
       std::cin >> v;
-      
+      t_vector* result_vector = new t_vector[1];
       if (v == 1)
-        ~vector1;
+      {
+        *result_vector = ~vector1;
+      }
+      
       else if (v == 2)
-        ~vector2;
+        *result_vector = ~vector2;
+      print_vector_array(*result_vector);
+      delete(result_vector);
       break;
     }
     case 7: {
