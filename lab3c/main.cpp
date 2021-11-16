@@ -104,11 +104,13 @@ void menu(t_vector vector1, t_vector vector2) {
       std::cin >> res_2;
       if (res_2 > 2)
         throw 4;
-      char str[10];
-      std::cin >> str;
+      std::cout << "Okey, print number of elements you want to add and a string" << std::endl;
+      int number;
+      std::cin >> number; 
+      char str[number+1];
       
-      if (strlen(str) > 10)
-        throw 5;
+      std::cin >> str;
+      str[number] = '\0';
       strfine(str);
       if (res_2 == 1)
         vector1.set_vector(str);
@@ -119,7 +121,8 @@ void menu(t_vector vector1, t_vector vector2) {
     case 3: {
       std::cout << "Okey, you want to or two vectors,lets go" << std::endl;
       vectordiff(vector1, vector2);
-      t_vector* result_vector = new t_vector[1];
+      t_vector* result_vector = new t_vector;
+      
       *result_vector = vector1 | vector2;
       print_vector_array(*result_vector);
       delete(result_vector);

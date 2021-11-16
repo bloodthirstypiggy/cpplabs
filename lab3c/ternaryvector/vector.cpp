@@ -4,7 +4,7 @@
 
 namespace vector1 {
 t_vector::t_vector() { n = 0;
-array[0] = '\0';
+
  };
 t_vector::t_vector(int a) {
   int i = 0;
