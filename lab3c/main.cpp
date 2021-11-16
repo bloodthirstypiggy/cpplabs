@@ -121,21 +121,17 @@ void menu(t_vector vector1, t_vector vector2) {
     case 3: {
       std::cout << "Okey, you want to or two vectors,lets go" << std::endl;
       vectordiff(vector1, vector2);
-      t_vector* result_vector = new t_vector;
-      
-      *result_vector = vector1 | vector2;
-      print_vector_array(*result_vector);
-      delete(result_vector);
+      t_vector result_vector = vector1 | vector2;
+      print_vector_array(result_vector);
       
       break;
     }
     case 4:{
       std::cout << "Okey, you want to add two vectors,lets go" << std::endl;
       vectordiff(vector1, vector2);
-      t_vector* result_vector = new t_vector[1];
-      *result_vector = vector1 & vector2;
-      print_vector_array(*result_vector);
-      delete(result_vector);
+      t_vector result_vector = vector1 & vector2;
+      print_vector_array(result_vector);
+      
       
       break;
     }
@@ -149,16 +145,19 @@ void menu(t_vector vector1, t_vector vector2) {
       std::cout << "Okey, print vector you want to invert" << std::endl;
       int v;
       std::cin >> v;
-      t_vector* result_vector = new t_vector[1];
+      t_vector result_vector;
       if (v == 1)
       {
-        *result_vector = ~vector1;
+        result_vector = ~ vector1;
       }
       
-      else if (v == 2)
-        *result_vector = ~vector2;
-      print_vector_array(*result_vector);
-      delete(result_vector);
+      else if (v == 2){
+         
+        result_vector = ~ vector2;
+
+      }
+      print_vector_array(result_vector);
+      
       break;
     }
     case 7: {
@@ -190,6 +189,8 @@ int main(){
   char* result = get_string();
   t_vector vector1(result);
   t_vector vector2(b);
+  t_vector vector_copy = vector1; // copy
+  
   
   
   menu(vector1, vector2);

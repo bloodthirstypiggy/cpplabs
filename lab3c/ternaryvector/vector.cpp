@@ -18,13 +18,27 @@ t_vector::t_vector(int a) {
 t_vector::t_vector(char *str) {
   int i = 0;
   n = strlen(str);
-  array = new char[n];
+  array = new char[n+1];
   while (str[i] != '\0') {
     array[i] = str[i];
      i++;
   }
   array[n] = '\0';
 };
+
+t_vector::t_vector(const t_vector & vector1)
+{
+  n=vector1.n;
+  array = new char[n];
+  for (int i = 0; i<n;i++)
+  {
+    array[i] = vector1.array[i];
+  }
+  array[n] = '\0';
+}
+
+
+
 int t_vector::get_vector() const { return n; }
 
 const char *t_vector::get_vector_Array() const { return array; }
@@ -144,6 +158,18 @@ t_vector operator |(t_vector vector1, t_vector vector2) {
     return result_vector;
 }
 
+t_vector& t_vector::operator=(t_vector&& vector1)
+{
+  n = vector1.n;
+  array = new char[n];
+  for (int i = 0; i<n;i++)
+  {
+    array[i] = vector1.array[i];
+  }
+  array[n] = '\0';
+  return *this;
+}
+
 t_vector operator&(t_vector vector1, t_vector vector2) {
   int forres = vector1.get_vector();
   forres += 1;
@@ -179,7 +205,7 @@ bool operator==(t_vector vector1, t_vector vector2) {
   return result;
 }
 
-t_vector operator~(t_vector &vector1) {
+t_vector operator~(t_vector vector1) {
   t_vector vector = vector1;
   for (int i = 0; i < vector.n; i++) {
     if (vector.array[i] == '0')

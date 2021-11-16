@@ -21,7 +21,9 @@ class t_vector {
   friend t_vector operator | (t_vector , t_vector );
   friend t_vector operator & (t_vector , t_vector );
   friend bool operator == (t_vector , t_vector );
-  friend t_vector operator ~ (t_vector &);
+  friend t_vector operator ~ (t_vector);
+  
+  
 
 private:
   int n;
@@ -30,17 +32,17 @@ private:
 public:
   // \brief стандартный конструктор
   t_vector();
-
+  t_vector& operator=(t_vector&& vector1);
   // \brief конструктор, записывается а, по кол-ву а в массив записывается
   // несколько подряд идущих 2
   t_vector(int a);
   // \brief конструктор, которому подается строка, он ее обрабатывает и загоняет
   // эту строку в массив char вектора
   t_vector(char* string);
+  t_vector(const t_vector & vector1);
   // \brief setters and getters
   int get_vector() const;
   const char* get_vector_Array() const;
-
   // \brief копирует строку, которая подается в массив класса
   void set_vector(char* change);
   void print_vector_Array();
