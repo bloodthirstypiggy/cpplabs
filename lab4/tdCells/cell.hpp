@@ -67,7 +67,7 @@ public:
         return distance_from_castle;
     }
 
-    [[nodiscard]] int get_distance_for_plane() const {
+    [[nodiscard]] int get_distance_for_magic() const {
         return distance_for_plane;
     }
 
@@ -89,7 +89,7 @@ public:
         }
     }
 
-    bool change_distance_for_plane(int x) {
+    bool change_distance_for_magic(int x) {
         if (distance_for_plane == -1) {
             distance_for_plane = x + 1;
             return true;

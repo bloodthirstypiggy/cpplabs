@@ -132,51 +132,6 @@ namespace map1 {
         };
     }
 
-  /*  void Map::draw() {
-        int t;
-        std::vector<Cell>::iterator way, next;
-        sf::Sprite sprite;
-        sf::Image plain_image, water_image, mountain_image, castle_image, lair_image, light_image, heavy_image, plane_image;
-        plain_image.loadFromFile("../Map/Image/plain.png");
-        water_image.loadFromFile("../Map/Image/water.png");
-        mountain_image.loadFromFile("../Map/Image/mountain.png");
-        castle_image.loadFromFile("../Map/Image/castle.png");
-        lair_image.loadFromFile("../Map/Image/lair.png");
-        sf::Texture plain_texture, water_texture, mountain_texture, castle_texture, lair_texture, light_texture, heavy_texture, plane_texture;
-        plain_texture.loadFromImage(plain_image);
-        water_texture.loadFromImage(water_image);
-        mountain_texture.loadFromImage(mountain_image);
-        castle_texture.loadFromImage(castle_image);
-        lair_texture.loadFromImage(lair_image);
-        for (int i = 0; i < max_y; i++) {
-            for (int j = 0; j < max_x; j++) {
-                t = get_map()[j][i].get_type();
-                switch (t) {
-                    case 0:
-                        break;
-                    case 1:
-                        sprite.setTexture(plain_texture);
-                        break;
-                    case 2:
-                        sprite.setTexture(mountain_texture);
-                        break;
-                    case 3:
-                        sprite.setTexture(water_texture);
-                        break;
-                    case 4:
-                        sprite.setTexture(castle_texture);
-                        break;
-                    case 5:
-                        sprite.setTexture(lair_texture);
-                        break;
-                }
-                sprite.setPosition(j * 64, i * 64);
-                window.draw(sprite);
-            }
-        }
-
-    }
-*/
 
     void Map::play() {
         int x=0,y=0;
@@ -208,7 +163,7 @@ namespace map1 {
         while (!que.empty()) {
             x = que.begin()->get_coordinate().first;
             y = que.begin()->get_coordinate().second;
-            d = Cells[x][y].get_distance_for_plane();
+            d = Cells[x][y].get_distance_for_magic();
             if (x - 1 > -1) {
                 if (Cells[x - 1][y].get_type() == 1 or Cells[x - 1][y].get_type() == 5 or
                     Cells[x - 1][y].get_type() == 3) {
@@ -265,10 +220,10 @@ namespace map1 {
                             t = where_to_go(x, y);
                             break;
                         case 2:
-                            t = where_to_go_for_heavy(x, y);
+                            t = where_to_go_for_magic(x, y);
                             break;
                         case 3:
-                            t = where_to_go_for_plane(x, y);
+                            t = where_to_go_for_magic(x, y);
                             break;
                         case 4:
                             t = where_to_go(x, y);
@@ -344,12 +299,12 @@ namespace map1 {
         return t;
     }
 
-    int Map::where_to_go_for_plane(int x, int y) {
+    int Map::where_to_go_for_magic(int x, int y) {
         int d, t, dmin = max_y * max_x;
         if (x - 1 > -1) {
             if (Cells[x - 1][y].get_type() == 1 or Cells[x - 1][y].get_type() == 4 or Cells[x - 1][y].get_type() == 3) {
 
-                d = Cells[x - 1][y].get_distance_for_plane();
+                d = Cells[x - 1][y].get_distance_for_magic();
                 if (d < dmin) {
                     t = 1;
                     dmin = d;
@@ -358,7 +313,7 @@ namespace map1 {
         }
         if (x + 1 < max_x) {
             if (Cells[x + 1][y].get_type() == 1 or Cells[x + 1][y].get_type() == 4 or Cells[x + 1][y].get_type() == 3) {
-                d = Cells[x + 1][y].get_distance_for_plane();
+                d = Cells[x + 1][y].get_distance_for_magic();
                 if (d < dmin) {
                     t = 2;
                     dmin = d;
@@ -367,7 +322,7 @@ namespace map1 {
         }
         if (y - 1 > -1) {
             if (Cells[x][y - 1].get_type() == 1 or Cells[x][y - 1].get_type() == 4 or Cells[x][y - 1].get_type() == 3) {
-                d = Cells[x][y - 1].get_distance_for_plane();
+                d = Cells[x][y - 1].get_distance_for_magic();
                 if (d < dmin) {
                     t = 3;
                     dmin = d;
@@ -376,7 +331,7 @@ namespace map1 {
         }
         if (y + 1 < max_y) {
             if (Cells[x][y + 1].get_type() == 1 or Cells[x][y + 1].get_type() == 4 or Cells[x][y + 1].get_type() == 3) {
-                d = Cells[x][y + 1].get_distance_for_plane();
+                d = Cells[x][y + 1].get_distance_for_magic();
                 if (d < dmin) {
                     t = 4;
                     dmin = d;
@@ -386,7 +341,7 @@ namespace map1 {
         return t;
     }
 
-    int Map::where_to_go_for_heavy(int x, int y) {
+    int Map::where_to_go_for_magic(int x, int y) {
         int d, t, dmin = max_y * max_x;
         if (x - 1 > -1) {
             if ((Cells[x - 1][y].get_type() == 1 or Cells[x - 1][y].get_type() == 4)) {

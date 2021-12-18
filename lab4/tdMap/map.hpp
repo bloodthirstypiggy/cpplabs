@@ -35,7 +35,7 @@ namespace map1 {
 
         int where_to_go_for_heavy(int x, int y);
 
-        int where_to_go_for_plane(int x, int y);
+        int where_to_go_for_magic(int x, int y);
         My_table::Table<int, std::vector<int>> Tower_Table;
         void draw() ;
         void go();
