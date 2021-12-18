@@ -132,7 +132,7 @@ namespace map1 {
         };
     }
 
-    void Map::draw() {
+  /*  void Map::draw() {
         int t;
         std::vector<Cell>::iterator way, next;
         sf::Sprite sprite;
@@ -176,7 +176,7 @@ namespace map1 {
         }
 
     }
-
+*/
 
     void Map::play() {
         int x=0,y=0;

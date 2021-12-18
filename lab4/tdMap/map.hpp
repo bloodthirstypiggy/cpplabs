@@ -10,7 +10,7 @@
 #include "../tdDefenders/wall.hpp"
 #include "../tdCells/cell.hpp"
 #include "../tdCells/lair.hpp"
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 #include <random>
 #include <iostream>
 
