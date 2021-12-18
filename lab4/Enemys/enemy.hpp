@@ -1,6 +1,4 @@
-//
-// Created by ivan on 03.11.2021.
-//
+
 
 #ifndef BIG_PROJECT_ENEMY_HPP
 #define BIG_PROJECT_ENEMY_HPP
