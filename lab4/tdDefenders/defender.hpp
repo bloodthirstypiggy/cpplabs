@@ -1,13 +1,11 @@
-//
-// Created by ivan on 05.11.2021.
-//
+
 
 #ifndef BIG_PROJECT_DEFENDER_HPP
 #define BIG_PROJECT_DEFENDER_HPP
 
 #include <vector>
 #include <stdexcept>
-#include "../Enemys/enemy.hpp"
+#include "../tdEnemies/enemy.hpp"
 
 namespace Defend {
     class Defender {

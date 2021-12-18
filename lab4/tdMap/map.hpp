@@ -1,6 +1,4 @@
-//
-// Created by ivan on 03.11.2021.
-//
+
 
 #ifndef BIG_PROJECT_MAP_HPP
 #define BIG_PROJECT_MAP_HPP
@@ -8,10 +6,10 @@
 
 #include <vector>
 #include <queue>
-#include "../Defenders/tower.hpp"
-#include "../Defenders/wall.hpp"
-#include "../Cell/cell.hpp"
-#include "../Cell/lair.hpp"
+#include "../tdDefenders/tower.hpp"
+#include "../tdDefenders/wall.hpp"
+#include "../tdCells/cell.hpp"
+#include "../tdCells/lair.hpp"
 #include <SFML/Graphics.hpp>
 #include <random>
 #include <iostream>

@@ -1,12 +1,10 @@
-//
-// Created by ivan on 27.11.2021.
-//
+
 
 #ifndef BIG_PROJECT_TOWER_HPP
 #define BIG_PROJECT_TOWER_HPP
 
 #include "defender.hpp"
-#include "../Table/table.hpp"
+#include "../tdTable/table.hpp"
 class Tower : public Defend::Defender {
 private:
     int level;

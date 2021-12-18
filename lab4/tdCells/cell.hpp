@@ -5,8 +5,8 @@
 
 #include <utility>
 #include <vector>
-#include "../Enemys/enemy.hpp"
-#include "../Defenders/wall.hpp"
+#include "../tdEnemys/enemy.hpp"
+#include "../tdDefenders/wall.hpp"
 
 class Cell {
 protected:

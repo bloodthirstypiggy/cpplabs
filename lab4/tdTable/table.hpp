@@ -1,8 +1,6 @@
-//
-// Created by ivan on 27.11.2021.
-//
+
 /*!
- * @file Table
+ * @file tdTable
  * @brief The header file that represents the imlementation of the templzte class Table
  */
 #ifndef BIG_PROJECT_TABLE_HPP
