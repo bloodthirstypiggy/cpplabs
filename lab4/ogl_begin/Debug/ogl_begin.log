@@ -1,0 +1,8 @@
+﻿  Map.cpp
+D:\Programs\C++\Defend\ogl_begin\Enemy.h(34,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Programs\C++\Defend\ogl_begin\Enemy.h(35,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Programs\C++\Defend\ogl_begin\Buildings.h(22,41): warning C4244: return: преобразование "int" в "float", возможна потеря данных
+D:\Programs\C++\Defend\ogl_begin\Map.cpp(121,15): warning C4101: building: неиспользованная локальная переменная
+D:\Programs\C++\Defend\ogl_begin\Map.cpp(117): warning C4715: getStringType: значение возвращается не при всех путях выполнения
+D:\Programs\C++\Defend\ogl_begin\Map.cpp(92): warning C4715: getCost: значение возвращается не при всех путях выполнения
+  ogl_begin.vcxproj -> D:\Programs\C++\Defend\Debug\ogl_begin.exe
