@@ -8,10 +8,41 @@ void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
 void DisableOpenGL(HWND, HDC, HGLRC);
 
 // GRAPHICS FUNCS
+void loadTexture(const char*&& path, unsigned int& texture)
+{
+	int w, h, cnt;
+	unsigned char* data = stbi_load(path, &w, &h, &cnt, 0); glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, cnt == 4 ? GL_RGBA : GL_RGB, GL_UNSIGNED_BYTE, data);
+	glBindTexture(GL_TEXTURE_2D, 0);
+	stbi_image_free(data);
+}
+
 void glGameInit()
 {
+	Map::sizeOfSquare = min((Map::mapToX - Map::mapFromX) / (float)GameMap::getMapSizeX(), (Map::mapToY - Map::mapFromY) / (float)GameMap::getMapSizeY());
+	if (Map::sizeOfSquare != (Map::mapToX - Map::mapFromX) / (float)GameMap::getMapSizeX())
+	{
+		float a = Map::sizeOfSquare * GameMap::getMapSizeX();
+		Map::mapFromX = -(a / 2.0f);
+		Map::mapToX = -Map::mapFromX;
+	}
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	loadTexture("graphics/castle.png", Map::castleTexture);
+	loadTexture("graphics/empty.png", Map::emptyTexture);
+	loadTexture("graphics/forest.png", Map::forestTexture);
+	loadTexture("graphics/trap.png", Map::trapTexture);
+	loadTexture("graphics/enemy.png", Map::enemyTexture);
+	loadTexture("graphics/tower1.png", Map::tower1Texture);
+	loadTexture("graphics/tower2.png", Map::tower2Texture);
+	loadTexture("graphics/tower3.png", Map::tower3Texture);
+	loadTexture("graphics/spawner.png", Map::spawnerTexture);
+	loadTexture("graphics/road.png", Map::roadTexture);
 }
 
 void printString(float x, float y, char* text, float r, float g, float b)
@@ -43,9 +74,30 @@ void drawSquare(float size, float x, float y)
 	glPopMatrix();
 }
 
+void drawTexturedSquare(float size, float x, float y, unsigned int texture)
+{
+	float vertex[] = { x,y,0, x + size,y,0, x + size,y + size,0, x,y + size,0 };
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glPushMatrix();
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glVertexPointer(3, GL_FLOAT, 0, vertex);
+	glTexCoordPointer(2, GL_FLOAT, 0, Map::textureMap);
+	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glPopMatrix();
+
+	glDisable(GL_TEXTURE_2D);
+}
+
 void drawEnemy(Enemy& enemy, float size)
 {
-	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);  drawSquare(Map::sizeOfSquare, enemy.getCoord().x, enemy.getCoord().y);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);  drawTexturedSquare(Map::sizeOfSquare, enemy.getCoord().x, enemy.getCoord().y, Map::enemyTexture);
 	for (auto i = enemy.getEffectList().begin(); i != enemy.getEffectList().end(); i++)
 	{
 		switch ((*i).effect->getEffetType())
@@ -126,21 +178,24 @@ void drawMap()
 {
 	for (int i = 0; i < GameMap::getMapSizeX(); i++)
 	{
+		unsigned int texture;
 		for (int j = 0; j < GameMap::getMapSizeY(); j++)
 		{
 			switch (GameMap::getMap().find(std::pair<int, int>(i, j))->second.field.getFieldType())
 			{
 			case FieldType::empty:
-				glColor3f(0.1f, 0.5f, 0.1f);
+				texture = Map::emptyTexture;
+				drawTexturedSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare, texture);
 				break;
 			case FieldType::forest:
-				glColor3f(0, 1.0f, 0);
+				texture = Map::forestTexture;
+				drawTexturedSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare, texture);
 				break;
 			case FieldType::road:
-				glColor3f(0.57f, 0.36f, 0.21f);
+				texture = Map::roadTexture;
+				drawTexturedSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare, texture);
 				break;
 			}
-			drawSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare);
 			if (GameMap::getMap().find(std::pair<int, int>(i, j))->second.building != nullptr)
 			{
 				switch (GameMap::getMap().find(std::pair<int, int>(i, j))->second.building->getEnvironmentType())
@@ -150,22 +205,21 @@ void drawMap()
 					drawSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare);
 					break;
 				case EnvironmentType::emenySpawner:
-					glColor3f(0.14f, 0.12f, 0.04f);
-					drawSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare);
+					drawTexturedSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare, Map::spawnerTexture);
 					break;
 				case EnvironmentType::tower:
 					//glColor3f(0.14f, 0.12f, 0.04f);
 					//drawSquare(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare);
-					dynamic_cast<Tower*>(GameMap::getMap().find(std::pair<int, int>(i, j))->second.building)->draw(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare);
+					GameMap::getMap().find(std::pair<int, int>(i, j))->second.building->draw(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare, Map::tower1Texture, Map::tower2Texture, Map::tower3Texture);
 					break;
 				case EnvironmentType::trap:
-					dynamic_cast<Trap*>(GameMap::getMap().find(std::pair<int, int>(i, j))->second.building)->draw(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare);
+					dynamic_cast<Trap*>(GameMap::getMap().find(std::pair<int, int>(i, j))->second.building)->draw(Map::sizeOfSquare, Map::mapFromX + i * Map::sizeOfSquare, Map::mapFromY + j * Map::sizeOfSquare, Map::trapTexture);
 					break;
 				}
 			}
 		}
 	}
-	glColor3f(1, 0.87f, 0.42f); drawSquare(Map::sizeOfSquare, Map::mapFromX + GameMap::getCastle().getCoord().x * Map::sizeOfSquare, Map::mapFromY + GameMap::getCastle().getCoord().y * Map::sizeOfSquare);
+	drawTexturedSquare(Map::sizeOfSquare, Map::mapFromX + GameMap::getCastle().getCoord().x * Map::sizeOfSquare, Map::mapFromY + GameMap::getCastle().getCoord().y * Map::sizeOfSquare, Map::castleTexture);
 	glColor3f(1, 1, 1);  drawCell();
 }
 
@@ -307,14 +361,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	MSG msg;
 	BOOL bQuit = FALSE;
 	float theta = 0.0f;
-	int seconds = 0;
-	Map::sizeOfSquare = min((Map::mapToX - Map::mapFromX)/ (float)GameMap::getMapSizeX(), (Map::mapToY - Map::mapFromY)/ (float)GameMap::getMapSizeY());
-	if (Map::sizeOfSquare != (Map::mapToX - Map::mapFromX) / (float)GameMap::getMapSizeX())
-	{
-		float a = Map::sizeOfSquare * GameMap::getMapSizeX();
-		Map::mapFromX = -(a / 2.0f);
-		Map::mapToX = -Map::mapFromX;
-	}
+	
 	/* register window class */
 	wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.style = CS_OWNDC;
@@ -353,9 +400,13 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	/* enable OpenGL for the window */
 	EnableOpenGL(hwnd, &hDC, &hRC);
-	GameMap::gameInit();
+	//
+	//GameMap::gameInit();
+	//save();
+	//
+	load();
+	//
 	glGameInit();
-
 	/* program main loop */
 	while (!bQuit && GameMap::getCastle().getCurHp() > 0)
 	{
@@ -390,7 +441,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 			enemyLogic(deleteList);
 			
-			glColor4f(1, 1, 1, 1); printText(std::to_string(seconds), -16.0f/9.0f, 1, 4.0f);
+			glColor4f(1, 1, 1, 1); printText(std::to_string(Map::seconds), -16.0f/9.0f, 1, 4.0f);
 			glColor4f(0.91f, 1, 0.3f, 1.0f); printText(GameMap::getCastle().getMoneyString(), Map::mapFromX, -0.5, 4.0f);
 
 			glPopMatrix();
@@ -411,25 +462,25 @@ int WINAPI WinMain(HINSTANCE hInstance,
 			{
 				Map::secCounter = 0;
 				//ËÎÃÈÊÀ ÇÀÂßÇÀÍÍÀß ÍÀ ÐÀÇ Â ÑÅÊÓÍÄÓ
-				seconds++;
+				Map::seconds++;
 				for (auto i = EnemySpawner::getEnemySpawnerList().begin(); i != EnemySpawner::getEnemySpawnerList().end(); i++)
 				{
 					(*i)->spawnEnemy(Map::sizeOfSquare, Map::mapFromX, Map::mapFromY);
 				}
+				if (Map::seconds % 50 == 0)
+				{
+					for (auto i = EnemySpawner::getEnemySpawnerList().begin(); i != EnemySpawner::getEnemySpawnerList().end(); i++)
+					{
+						(*i)->setSpawnPeriod((*i)->getSpawnPeriod() == 1 ? 1 : (*i)->getSpawnPeriod() - 1);
+					}
+				}
 				//ËÎÃÈÊÀ ÇÀÂßÇÀÍÍÀß ÍÀ ÐÀÇ Â ÑÅÊÓÍÄÓ
 			}
-			/*if (seconds % 100 == 0)
-			{
-				for (auto i = EnemySpawner::getEnemySpawnerList().begin(); i != EnemySpawner::getEnemySpawnerList().end(); i++)
-				{
-					(*i)->setSpawnPeriod((*i)->getSpawnPeriod() == 1 ? 1 : (*i)->getSpawnPeriod() - 1);
-				}
-			}*/
 			Map::secCounter++;
 			Sleep(1);
 		}
 	}
-
+	save();
 	/* shutdown OpenGL */
 	DisableOpenGL(hwnd, hDC, hRC);
 

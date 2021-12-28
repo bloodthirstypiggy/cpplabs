@@ -1,6 +1,9 @@
 #pragma once
 #include <list>
+//#include "list.h"
 #include "Effect.h"
+#include <iostream>
+#include <fstream>
 
 struct Coord
 {
@@ -52,6 +55,8 @@ class Enemy
 {
 private:
 	static std::list<Enemy> enemyList;
+	Coord spawnerCoord;
+	int roadElementNumber = 0;
 	FloatCoord coord;
 	int maxHp, curHp, gold;
 	float speed; // À≈“Œ  «¿ —≈ ”Õƒ”
@@ -64,7 +69,11 @@ public:
 	inline int getCurHp() { return curHp; }
 	inline void setCurHp(int hp) { curHp = hp; }
 	inline int getGold() { return gold; }
-
+	inline Coord& getSpawnerCoord() { return spawnerCoord; }
+	inline int& getRoadElementNumber() { return roadElementNumber; }
+	inline void setNextGoalCoord(std::list<Coord>::iterator it) { nextGoalCoord = it; }
+	void save(std::ofstream& fout);
+	void load(std::ifstream& fin, Effects& effects);
 	inline float getSpeed()
 	{
 		float s = speed;
@@ -80,7 +89,8 @@ public:
 	}
 	inline std::list<EffectOnEnemy>& getEffectList() { return effectList; }
 
-	inline Enemy(float x, float y, int maxHP, int gold, float speed, std::list<Coord>::iterator nextGoal) : coord(x, y), speed(speed), maxHp(maxHP), curHp(maxHP), gold(gold), nextGoalCoord(nextGoal) {}
+	inline Enemy(float x, float y, int maxHP, int gold, float speed, std::list<Coord>::iterator nextGoal, Coord spawnerC) : spawnerCoord(spawnerC), coord(x, y), speed(speed), maxHp(maxHP), curHp(maxHP), gold(gold), nextGoalCoord(nextGoal) {}
+	inline Enemy(float x, float y, int maxHP, int curHp, int gold, float speed, std::list<Coord>::iterator nextGoal, Coord spawnerC) : curHp(curHp), spawnerCoord(spawnerC), coord(x, y), speed(speed), maxHp(maxHP), gold(gold), nextGoalCoord(nextGoal) {}
 	void move(float sizeOfSquare, float mapFromX, float mapFromY);
 	void effectsEnforce(bool isSecond);
 	//void;

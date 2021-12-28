@@ -4,4 +4,7 @@ cmake-build-debug
 build
 ternaryvector/vector.hpp.gch
 lab3/build
+lab4/.vs
+lab4/Debug
+lab4/enc_temp_folder
 

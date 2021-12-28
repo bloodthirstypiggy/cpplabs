@@ -1,8 +1,22 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include "Environment.h"
 #include "Effect.h"
 #include "Enemy.h"
+
+enum TowerType
+{
+	tower1lvl,
+	tower2lvl,
+	tower3lvl,
+	towerSlow,
+	towerPoison,
+	towerDamageEncrease,
+	slowTrap,
+	poisonTrap,
+	damageEncreaseTrap
+};
 
 namespace Budapesht {
 	float getDistanceToEnemy(float x, float y, Enemy& enemy, float cellSize, float fromX, float fromY);
@@ -24,6 +38,8 @@ public:
 	inline void setDmg(float damage) { dmg = damage; }
 	inline float getAttackRange() { return attackRange; }
 	inline int getBeforeAttack() { return beforeAttack; }
+	virtual void save(std::ofstream& fout);
+	//virtual void load(std::ifstream& fin);
 
 	inline Tower(int level, int x, int y) : Environment(tower, x, y), lvl(level), dmg(20.0f * lvl), cost(25 * lvl), attackSpeed(3 - lvl + 1), beforeAttack(0), attackRange(0.4f)
 	{
@@ -33,7 +49,7 @@ public:
 	float getDistanceToEnemy(Enemy& enemy, float cellSize, float fromX, float fromY);
 	virtual int getGold();
 	virtual void attack(Enemy& enemy);
-	virtual void draw(float size, float x, float y);
+	void draw(float size, float x, float y, unsigned int tower1t, unsigned int tower2t, unsigned int tower3t) override;
 	Enemy& choiceEnemyFromList(float cellSize, float fromX, float fromY); //ÂÛÁĞÀÒÜ ÏÎ ÑÒĞÀÒÅÃÈÈ
 	void secondEvent(bool isSecond, float cellSize, float fromX, float fromY);
 };
@@ -43,6 +59,8 @@ class MagicTower : public Tower
 private:
 	Effect* effect;
 public:
+	void save(std::ofstream& fout) override;
+	//void load(std::ifstream& fin) override;
 	inline MagicTower(int x, int y, Effects& from, int index, float radius) : Tower(3, x, y)
 	{
 		if (index > 2 || index < 0)
@@ -53,7 +71,7 @@ public:
 	}
 	void attack(Enemy& enemy) override;
 	int getGold() override;
-	void draw(float size, float x, float y) override;
+	void draw(float size, float x, float y, unsigned int tower1t, unsigned int tower2t, unsigned int tower3t) override;
 	inline ~MagicTower() override {}
 };
 
@@ -72,8 +90,9 @@ public:
 		effect = from.getEffects()[index];
 	}
 	inline ~Trap() override {}
+	inline Effect*& getEffect() { return effect; }
 	int getGold();
-	void draw(float size, float x, float y);
+	void draw(float size, float x, float y, unsigned int trapTexture);
 	void explode(float cellSize, float fromX, float fromY);
 };
 
@@ -81,13 +100,16 @@ class EnemySpawner : public Environment
 {
 private:
 	static std::list<EnemySpawner*> enemySpawnerList;
+	Road roadToCastle;
 	int maxHp, curHp, gold; //ÂÅËÈ×ÈÍÛ ÄËß ÑÎÇÄÀÍÈß ÌÎÍÑÒĞÈÊÎÂ :)
 	float speed;
-	Road roadToCastle;
 	int spawnPeriod, toSpawn;
 public:
+	void save(std::ofstream& fout);
+	Road& getRoad() { return roadToCastle; }
+	void load(std::ifstream& fin);
 	static std::list<EnemySpawner*>& getEnemySpawnerList() { return enemySpawnerList; }
-	inline EnemySpawner(int x, int y) : Environment(emenySpawner, x, y) {}
+	inline EnemySpawner(int x, int y) : Environment(emenySpawner, x, y), maxHp(0), curHp(0), gold(0), speed(0), spawnPeriod(0), toSpawn(0) {}
 	inline EnemySpawner(int x, int y, int maxHp, int gold, float speed, Road road) : spawnPeriod(10), toSpawn(spawnPeriod), Environment(emenySpawner, x, y), maxHp(maxHp), curHp(maxHp), gold(gold), speed(speed), roadToCastle(road) {}
 	inline int getSpawnPeriod() { return spawnPeriod; }
 	inline int getToSpawn() { return toSpawn; }

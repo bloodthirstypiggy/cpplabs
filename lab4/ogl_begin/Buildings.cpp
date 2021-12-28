@@ -2,11 +2,13 @@
 #include <windows.h>
 #include <gl/gl.h>
 #include <math.h>
+#include <fstream>
 
 std::list<Tower*> Towers::towers;
 std::list<EnemySpawner*> EnemySpawner::enemySpawnerList;
 
 void drawSquare(float size, float x, float y);
+void drawTexturedSquare(float size, float x, float y, unsigned int texture);
 
 void Tower::attack(Enemy& enemy)
 {
@@ -23,21 +25,22 @@ void Tower::attack(Enemy& enemy)
 	enemy.setCurHp(enemy.getCurHp() - damage);
 }
 
-void Tower::draw(float size, float x, float y)
+void Tower::draw(float size, float x, float y, unsigned int tower1t, unsigned int tower2t, unsigned int tower3t)
 {
+	unsigned int texture;
 	switch (lvl)
 	{
 	case 1:
-		glColor4f(0.54f, 0.54f, 0.54f, 1);
+		texture = tower1t;
 		break;
 	case 2:
-		glColor4f(0.34f, 0.34f, 0.34f, 1);
+		texture = tower2t;
 		break;
 	case 3:
-		glColor4f(0.17f, 0.17f, 0.17f, 1);
+		texture = tower3t;
 		break;
 	}
-	drawSquare(size, x, y);
+	drawTexturedSquare(size, x, y, texture);
 	glColor4f(1, 1, 1, 1);
 }
 
@@ -114,10 +117,9 @@ int MagicTower::getGold()
 	return 30;
 }
 
-void MagicTower::draw(float size, float x, float y)
+void MagicTower::draw(float size, float x, float y, unsigned int tower1t, unsigned int tower2t, unsigned int tower3t)
 {
-	glColor4f(0.7f, 0.7f, 0.7f, 1);
-	drawSquare(size, x, y);
+	drawTexturedSquare(size, x, y, tower3t);
 	switch (effect->getEffetType())
 	{
 	case EffectType::poisoning:
@@ -143,7 +145,7 @@ void EnemySpawner::spawnEnemy(float cellSize, float fromX, float fromY)
 	}
 	toSpawn = 0;
 	FloatCoord fc = coordToFloatCoord(getCoord(), cellSize, fromX, fromY);
-	Enemy::getEnemyList().push_back(Enemy(fc.x, fc.y, maxHp, gold, speed, ++roadToCastle.coordList.begin()));
+	Enemy::getEnemyList().push_back(Enemy(fc.x, fc.y, maxHp, gold, speed, ++roadToCastle.coordList.begin(), getCoord()));
 	maxHp += 5;
 	//ÓÂÅËÈ×ÈÂÀÅÌ ÑËÎÆÍÎÑÒÜ ÊÀÆÄÛÉ ÂÛÕÎÄ ÌÎÁÀ
 }
@@ -153,10 +155,9 @@ int Trap::getGold()
 	return 5;
 }
 
-void Trap::draw(float size, float x, float y)
+void Trap::draw(float size, float x, float y, unsigned int texture)
 {
-	glColor4f(1, 1, 1, 1);
-	drawSquare(size, x, y);
+	drawTexturedSquare(size, x, y, texture);
 	switch(effect->getEffetType())
 	{
 	case EffectType::poisoning:
@@ -192,4 +193,72 @@ void Trap::explode(float cellSize, float fromX, float fromY)
 float Budapesht::getDistanceToEnemy(float x, float y, Enemy& enemy, float cellSize, float fromX, float fromY)
 {
 	return sqrt(pow((x - enemy.getCoord().x), 2) + pow(y - enemy.getCoord().y, 2));
+}
+
+
+void Tower::save(std::ofstream& fout)
+{
+	TowerType towerType;
+	switch(lvl)
+	{
+	case 1:
+		towerType = tower1lvl;
+		fout.write((char*)&towerType, sizeof(TowerType));
+		break;
+	case 2:
+		towerType = tower2lvl;
+		fout.write((char*)&towerType, sizeof(TowerType));
+		break;
+	case 3:
+		towerType = tower3lvl;
+		fout.write((char*)&towerType, sizeof(TowerType));
+		break;
+	}
+}
+
+void MagicTower::save(std::ofstream& fout)
+{
+	TowerType type;
+	switch (effect->getEffetType())
+	{
+	case EffectType::damageIncrease:
+		type = TowerType::damageEncreaseTrap;
+		fout.write((char*)&type, sizeof(TowerType));
+		break;
+	case EffectType::poisoning:
+		type = TowerType::poisonTrap;
+		fout.write((char*)&type, sizeof(TowerType));
+		break;
+	case EffectType::slow:
+		type = TowerType::slowTrap;
+		fout.write((char*)&type, sizeof(TowerType));
+		break;
+	}
+}
+
+void EnemySpawner::save(std::ofstream& fout)
+{
+	int size = roadToCastle.coordList.size();
+	fout.write((char*)&size, sizeof(int));
+	for (auto i = roadToCastle.coordList.begin(); i != roadToCastle.coordList.end(); i++)
+	{
+		fout.write((char*)&(*i), sizeof(Coord));
+	}
+	fout.write((char*)this + sizeof(void*), sizeof(Environment) - sizeof(void*));
+	fout.write((char*)this + sizeof(Environment) + sizeof(Road), sizeof(EnemySpawner) - sizeof(Environment) - sizeof(Road));
+}
+
+void EnemySpawner::load(std::ifstream& fin)
+{
+	int size;
+	fin.read((char*)&size, sizeof(int));
+	for (int i = 0; i < size; i++)
+	{
+		Coord c(0, 0);
+		fin.read((char*)&c, sizeof(Coord));
+		roadToCastle.coordList.push_back(c);
+	}
+	fin.read((char*)this + sizeof(void*), sizeof(Environment) - sizeof(void*));
+	fin.read((char*)this + sizeof(Environment) + sizeof(Road), sizeof(EnemySpawner) - sizeof(Environment) - sizeof(Road));
+
 }

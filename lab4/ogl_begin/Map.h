@@ -3,6 +3,7 @@
 #include "Buildings.h"
 #include "Enemy.h"
 #include <map>
+#include <fstream>
 
 enum TowerType;
 int getCost(TowerType type);
@@ -27,9 +28,11 @@ class GameMap
 private:
 	static Castle mainCastle;
 	static Effects effects;
-	static const int MAP_SIZE_X = 30;
-	static const int MAP_SIZE_Y = 15;
+	static int MAP_SIZE_X;
+	static int MAP_SIZE_Y;
 	static std::map<std::pair<int, int>, MapElement> map;
+	static void fillForest(int fromX, int fromY, int toX, int toY);
+	static void fillEmpty();
 public:
 	inline static std::map<std::pair<int, int>, MapElement>& getMap() { return map; }
 	inline static Effects& getEffects() { return effects; }
@@ -37,21 +40,16 @@ public:
 	inline static const int getMapSizeY() { return MAP_SIZE_Y; }
 	static void gameInit();
 	static Castle& getCastle() { return mainCastle; }
+	static void load(std::ifstream& fin);
+	static void save(std::ofstream& fout);
+
+	static friend void createMap1();
+	static friend void createMap2();
+	static friend void createMap3();
 	//static void clear();
 };
 
-enum TowerType
-{
-	tower1lvl,
-	tower2lvl,
-	tower3lvl,
-	towerSlow,
-	towerPoison,
-	towerDamageEncrease,
-	slowTrap,
-	poisonTrap,
-	damageEncreaseTrap
-};
+
 
 void putBuilding(TowerType type, int x, int y);
 void crashBuilding(int x, int y);
