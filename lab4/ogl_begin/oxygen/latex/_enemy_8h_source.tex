@@ -1,0 +1,108 @@
+\hypertarget{_enemy_8h_source}{}\doxysection{C\+:/\+Users/user/\+Documents/\+Git\+Hub/cpplabs/lab4/ogl\+\_\+begin/\+Enemy.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{3 \textcolor{comment}{//\#include "{}list.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Effect.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_coord}{Coord}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} x, y;}
+\DoxyCodeLine{11     \textcolor{keyword}{inline} \mbox{\hyperlink{struct_coord}{Coord}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y)}
+\DoxyCodeLine{12     \{}
+\DoxyCodeLine{13         this-\/>x = x;}
+\DoxyCodeLine{14         this-\/>y = y;}
+\DoxyCodeLine{15     \}}
+\DoxyCodeLine{16 \};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_float_coord}{FloatCoord}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{float} x, y;}
+\DoxyCodeLine{21     \textcolor{keyword}{inline} \mbox{\hyperlink{struct_float_coord}{FloatCoord}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y)}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         this-\/>x = x;}
+\DoxyCodeLine{24         this-\/>y = y;}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{inline} \mbox{\hyperlink{struct_float_coord}{FloatCoord}} coordToFloatCoord(\mbox{\hyperlink{struct_coord}{Coord}}\& coord,\textcolor{keywordtype}{float} cellSize, \textcolor{keywordtype}{float} fromX, \textcolor{keywordtype}{float} fromY)}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keywordtype}{float} x = fromX + cellSize * coord.x;}
+\DoxyCodeLine{31     \textcolor{keywordtype}{float} y = fromY + cellSize * coord.y;}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_float_coord}{FloatCoord}}(x, y);}
+\DoxyCodeLine{33 \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{inline} \mbox{\hyperlink{struct_coord}{Coord}} floatCoordToCoord(\mbox{\hyperlink{struct_float_coord}{FloatCoord}}\& floatCoord, \textcolor{keywordtype}{float} cellSize, \textcolor{keywordtype}{float} fromX, \textcolor{keywordtype}{float} fromY)}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} x = (floatCoord.x -\/ fromX) / cellSize;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} y = (floatCoord.y -\/ fromY) / cellSize;}
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_coord}{Coord}}(x, y);}
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_effect_on_enemy}{EffectOnEnemy}}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{class_effect}{Effect}}* effect;}
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} seconds;}
+\DoxyCodeLine{46     \textcolor{keyword}{inline} \mbox{\hyperlink{struct_effect_on_enemy}{EffectOnEnemy}}(\mbox{\hyperlink{class_effect}{Effect}}* effect)}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         this-\/>effect = effect;}
+\DoxyCodeLine{49         seconds = effect-\/>getLength();}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51     }
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{class }\mbox{\hyperlink{class_enemy}{Enemy}}}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56 \textcolor{keyword}{private}:}
+\DoxyCodeLine{57     \textcolor{keyword}{static} \mbox{\hyperlink{classstd_1_1list}{std::list<Enemy>}} enemyList;}
+\DoxyCodeLine{58     \mbox{\hyperlink{struct_coord}{Coord}} spawnerCoord;}
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} roadElementNumber = 0;}
+\DoxyCodeLine{60     \mbox{\hyperlink{struct_float_coord}{FloatCoord}} coord;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} maxHp, curHp, gold;}
+\DoxyCodeLine{62     \textcolor{keywordtype}{float} speed; \textcolor{comment}{// À≈“Œ  «¿ —≈ ”Õƒ”}}
+\DoxyCodeLine{63     \mbox{\hyperlink{classstd_1_1list}{std::list<EffectOnEnemy>}} effectList;}
+\DoxyCodeLine{64     \mbox{\hyperlink{classstd_1_1list_1_1iterator}{std::list<Coord>::iterator}} nextGoalCoord;}
+\DoxyCodeLine{65 \textcolor{keyword}{public}:}
+\DoxyCodeLine{66     \textcolor{keyword}{inline} \textcolor{keyword}{static} \mbox{\hyperlink{classstd_1_1list}{std::list<Enemy>}}\& getEnemyList() \{ \textcolor{keywordflow}{return} enemyList; \}}
+\DoxyCodeLine{67     \textcolor{keyword}{inline} \mbox{\hyperlink{struct_float_coord}{FloatCoord}}\& getCoord() \{ \textcolor{keywordflow}{return} coord; \}}
+\DoxyCodeLine{68     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getMaxHp() \{ \textcolor{keywordflow}{return} maxHp; \}}
+\DoxyCodeLine{69     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getCurHp() \{ \textcolor{keywordflow}{return} curHp; \}}
+\DoxyCodeLine{70     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setCurHp(\textcolor{keywordtype}{int} hp) \{ curHp = hp; \}}
+\DoxyCodeLine{71     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getGold() \{ \textcolor{keywordflow}{return} gold; \}}
+\DoxyCodeLine{72     \textcolor{keyword}{inline} \mbox{\hyperlink{struct_coord}{Coord}}\& getSpawnerCoord() \{ \textcolor{keywordflow}{return} spawnerCoord; \}}
+\DoxyCodeLine{73     \textcolor{keyword}{inline} \textcolor{keywordtype}{int}\& getRoadElementNumber() \{ \textcolor{keywordflow}{return} roadElementNumber; \}}
+\DoxyCodeLine{74     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setNextGoalCoord(\mbox{\hyperlink{classstd_1_1list_1_1iterator}{std::list<Coord>::iterator}} it) \{ nextGoalCoord = it; \}}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} save(std::ofstream\& fout);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} load(std::ifstream\& fin, \mbox{\hyperlink{class_effects}{Effects}}\& effects);}
+\DoxyCodeLine{77     \textcolor{keyword}{inline} \textcolor{keywordtype}{float} getSpeed()}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79         \textcolor{keywordtype}{float} s = speed;}
+\DoxyCodeLine{80         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = effectList.begin(); i != effectList.end(); i++)}
+\DoxyCodeLine{81         \{}
+\DoxyCodeLine{82             \textcolor{keywordflow}{if} ((*i).effect-\/>getEffetType() == EffectType::slow)}
+\DoxyCodeLine{83             \{}
+\DoxyCodeLine{84                 }
+\DoxyCodeLine{85                 s /= (\textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_slow_effect}{SlowEffect}}*\textcolor{keyword}{>}((*i).effect))-\/>getSlowCoeff();}
+\DoxyCodeLine{86             \}}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88         \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90     \textcolor{keyword}{inline} \mbox{\hyperlink{classstd_1_1list}{std::list<EffectOnEnemy>}}\& getEffectList() \{ \textcolor{keywordflow}{return} effectList; \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keyword}{inline} \mbox{\hyperlink{class_enemy}{Enemy}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{int} maxHP, \textcolor{keywordtype}{int} gold, \textcolor{keywordtype}{float} speed, \mbox{\hyperlink{classstd_1_1list_1_1iterator}{std::list<Coord>::iterator}} nextGoal, \mbox{\hyperlink{struct_coord}{Coord}} spawnerC) : spawnerCoord(spawnerC), coord(x, y), speed(speed), maxHp(maxHP), curHp(maxHP), gold(gold), nextGoalCoord(nextGoal) \{\}}
+\DoxyCodeLine{93     \textcolor{keyword}{inline} \mbox{\hyperlink{class_enemy}{Enemy}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{int} maxHP, \textcolor{keywordtype}{int} curHp, \textcolor{keywordtype}{int} gold, \textcolor{keywordtype}{float} speed, \mbox{\hyperlink{classstd_1_1list_1_1iterator}{std::list<Coord>::iterator}} nextGoal, \mbox{\hyperlink{struct_coord}{Coord}} spawnerC) : curHp(curHp), spawnerCoord(spawnerC), coord(x, y), speed(speed), maxHp(maxHP), gold(gold), nextGoalCoord(nextGoal) \{\}}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} move(\textcolor{keywordtype}{float} sizeOfSquare, \textcolor{keywordtype}{float} mapFromX, \textcolor{keywordtype}{float} mapFromY);}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} effectsEnforce(\textcolor{keywordtype}{bool} isSecond);}
+\DoxyCodeLine{96     \textcolor{comment}{//void;}}
+\DoxyCodeLine{97 \};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_road}{Road}}}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101     \mbox{\hyperlink{classstd_1_1list}{std::list<Coord>}} coordList;}
+\DoxyCodeLine{102 \};}
+\DoxyCodeLine{103 }
+
+\end{DoxyCode}

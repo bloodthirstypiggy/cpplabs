@@ -1,0 +1,77 @@
+\hypertarget{class_tower}{}\doxysection{Tower Class Reference}
+\label{class_tower}\index{Tower@{Tower}}
+Inheritance diagram for Tower\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_tower}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tower_aae27366d52b32922e4ef5bce47adf843}\label{class_tower_aae27366d52b32922e4ef5bce47adf843}} 
+\mbox{\hyperlink{classstd_1_1list}{std\+::list}}$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $\ast$ $>$ \& {\bfseries get\+Enemys\+In\+Radius} ()
+\item 
+\mbox{\Hypertarget{class_tower_a0e5ce10d9ef2f1215113833980004a7a}\label{class_tower_a0e5ce10d9ef2f1215113833980004a7a}} 
+int {\bfseries get\+Lvl} ()
+\item 
+\mbox{\Hypertarget{class_tower_a88a01f81805c2b77a5bbc4c9d4b89fb5}\label{class_tower_a88a01f81805c2b77a5bbc4c9d4b89fb5}} 
+int {\bfseries get\+Cost} ()
+\item 
+\mbox{\Hypertarget{class_tower_ad32d3639a9bf9aaef1d3dc5275f37c80}\label{class_tower_ad32d3639a9bf9aaef1d3dc5275f37c80}} 
+float {\bfseries get\+Attack\+Speed} ()
+\item 
+\mbox{\Hypertarget{class_tower_a17dfe422d67390d5b6a366e74b61337e}\label{class_tower_a17dfe422d67390d5b6a366e74b61337e}} 
+float {\bfseries get\+Dmg} ()
+\item 
+\mbox{\Hypertarget{class_tower_af97820f2d16f8632476eefd4a44b3b8d}\label{class_tower_af97820f2d16f8632476eefd4a44b3b8d}} 
+void {\bfseries set\+Dmg} (float damage)
+\item 
+\mbox{\Hypertarget{class_tower_a91a03d8d65e8e49b6d7c8709ed5b13e9}\label{class_tower_a91a03d8d65e8e49b6d7c8709ed5b13e9}} 
+float {\bfseries get\+Attack\+Range} ()
+\item 
+\mbox{\Hypertarget{class_tower_a2cb2e8b78c6965164e42a22074d7bb7b}\label{class_tower_a2cb2e8b78c6965164e42a22074d7bb7b}} 
+int {\bfseries get\+Before\+Attack} ()
+\item 
+\mbox{\Hypertarget{class_tower_abff5cb3c81720da10b20d9756194c6c2}\label{class_tower_abff5cb3c81720da10b20d9756194c6c2}} 
+virtual void {\bfseries save} (std\+::ofstream \&fout)
+\item 
+\mbox{\Hypertarget{class_tower_a1bfd04e49effc84b4f85f70e62b28df2}\label{class_tower_a1bfd04e49effc84b4f85f70e62b28df2}} 
+{\bfseries Tower} (int level, int x, int y)
+\item 
+\mbox{\Hypertarget{class_tower_a5bc7e4f4a2f0686d8385d98d0e9ee08d}\label{class_tower_a5bc7e4f4a2f0686d8385d98d0e9ee08d}} 
+float {\bfseries get\+Distance\+To\+Enemy} (\mbox{\hyperlink{class_enemy}{Enemy}} \&enemy, float cell\+Size, float fromX, float fromY)
+\item 
+\mbox{\Hypertarget{class_tower_a8d57fd0395d8e51e3785d42d04459c93}\label{class_tower_a8d57fd0395d8e51e3785d42d04459c93}} 
+virtual int {\bfseries get\+Gold} ()
+\item 
+\mbox{\Hypertarget{class_tower_a552722c86a6792a89b0fb06d5a77c9cf}\label{class_tower_a552722c86a6792a89b0fb06d5a77c9cf}} 
+virtual void {\bfseries attack} (\mbox{\hyperlink{class_enemy}{Enemy}} \&enemy)
+\item 
+void \mbox{\hyperlink{class_tower_a46aa2324d2620581526711fab70878a9}{draw}} (float size, float x, float y, unsigned int tower1t, unsigned int tower2t, unsigned int tower3t) override
+\item 
+\mbox{\Hypertarget{class_tower_a4a76e699f1ec1964296fb81838595a71}\label{class_tower_a4a76e699f1ec1964296fb81838595a71}} 
+\mbox{\hyperlink{class_enemy}{Enemy}} \& {\bfseries choice\+Enemy\+From\+List} (float cell\+Size, float fromX, float fromY)
+\item 
+\mbox{\Hypertarget{class_tower_a83653d721978a1eadef071cc9014841f}\label{class_tower_a83653d721978a1eadef071cc9014841f}} 
+void {\bfseries second\+Event} (bool is\+Second, float cell\+Size, float fromX, float fromY)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tower_a46aa2324d2620581526711fab70878a9}\label{class_tower_a46aa2324d2620581526711fab70878a9}} 
+\index{Tower@{Tower}!draw@{draw}}
+\index{draw@{draw}!Tower@{Tower}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Tower\+::draw (\begin{DoxyParamCaption}\item[{float}]{size,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{unsigned int}]{tower1t,  }\item[{unsigned int}]{tower2t,  }\item[{unsigned int}]{tower3t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_environment}{Environment}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/user/\+Documents/\+Git\+Hub/cpplabs/lab4/ogl\+\_\+begin/Buildings.\+h\item 
+C\+:/\+Users/user/\+Documents/\+Git\+Hub/cpplabs/lab4/ogl\+\_\+begin/Buildings.\+cpp\end{DoxyCompactItemize}

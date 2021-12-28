@@ -1,0 +1,67 @@
+\hypertarget{_environment_8h_source}{}\doxysection{C\+:/\+Users/user/\+Documents/\+Git\+Hub/cpplabs/lab4/ogl\+\_\+begin/\+Environment.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Enemy.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{enum} EnvironmentType}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     tower,}
+\DoxyCodeLine{8     trap,}
+\DoxyCodeLine{9     castle,}
+\DoxyCodeLine{10     emenySpawner,}
+\DoxyCodeLine{11     field}
+\DoxyCodeLine{12 \};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{enum} FieldType}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     road,}
+\DoxyCodeLine{17     empty,}
+\DoxyCodeLine{18     forest}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_environment}{Environment}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{struct_coord}{Coord}} coord;}
+\DoxyCodeLine{25     EnvironmentType type;}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \textcolor{keyword}{inline} \mbox{\hyperlink{struct_coord}{Coord}}\& getCoord() \{ \textcolor{keywordflow}{return} coord; \}}
+\DoxyCodeLine{28     \textcolor{keyword}{inline} \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} draw(\textcolor{keywordtype}{float} size, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tower1t, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tower2t, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tower3t)}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30         }
+\DoxyCodeLine{31     \};}
+\DoxyCodeLine{32     \textcolor{keyword}{inline} EnvironmentType getEnvironmentType() \{ \textcolor{keywordflow}{return} type; \}}
+\DoxyCodeLine{33     \textcolor{keyword}{inline} \mbox{\hyperlink{class_environment}{Environment}}(EnvironmentType t, \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y) : type(t), coord(\mbox{\hyperlink{struct_coord}{Coord}}(x,y)) \{\}}
+\DoxyCodeLine{34     \textcolor{keyword}{inline} \textcolor{keyword}{virtual} \mbox{\hyperlink{class_environment}{\string~Environment}}() \{\}}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{class_field_element}{FieldElement}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_environment}{Environment}}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39 \textcolor{keyword}{private}:}
+\DoxyCodeLine{40     FieldType fieldType;}
+\DoxyCodeLine{41 \textcolor{keyword}{public}:}
+\DoxyCodeLine{42     \textcolor{keyword}{inline} FieldType getFieldType() \{ \textcolor{keywordflow}{return} fieldType; \}}
+\DoxyCodeLine{43     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setFieldType(FieldType type) \{ fieldType = type; \}}
+\DoxyCodeLine{44     \textcolor{keyword}{inline} \mbox{\hyperlink{class_field_element}{FieldElement}}(FieldType t, \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y) : \mbox{\hyperlink{class_environment}{Environment}}(EnvironmentType::field, x, y), fieldType(t) \{\}}
+\DoxyCodeLine{45     \textcolor{keyword}{inline} \mbox{\hyperlink{class_field_element}{\string~FieldElement}}() \{\}}
+\DoxyCodeLine{46 \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{class }\mbox{\hyperlink{class_castle}{Castle}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_environment}{Environment}}}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50 \textcolor{keyword}{private}:}
+\DoxyCodeLine{51     \textcolor{comment}{//std::string name = "{}Player's castle"{};}}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} maxHp, curHp, money;}
+\DoxyCodeLine{53 \textcolor{keyword}{public}:}
+\DoxyCodeLine{54     \textcolor{keyword}{inline} \textcolor{keywordtype}{int}\& getMoney() \{ \textcolor{keywordflow}{return} money; \}}
+\DoxyCodeLine{55     \textcolor{keyword}{inline} \textcolor{keywordtype}{int}\& getCurHp() \{ \textcolor{keywordflow}{return} curHp; \}}
+\DoxyCodeLine{56     \textcolor{keyword}{inline} \textcolor{keywordtype}{int}\& getMaxHp() \{ \textcolor{keywordflow}{return} maxHp; \}}
+\DoxyCodeLine{57     \textcolor{keyword}{inline} \mbox{\hyperlink{class_castle}{Castle}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keywordtype}{int} startMoney) : \mbox{\hyperlink{class_environment}{Environment}}(castle, x, y), maxHp(100), curHp(100), money(startMoney) \{\}}
+\DoxyCodeLine{58     \textcolor{keyword}{inline} \mbox{\hyperlink{class_castle}{Castle}}() : \mbox{\hyperlink{class_environment}{Environment}}(castle, 0, 0), maxHp(100), curHp(100), money(50) \{\}}
+\DoxyCodeLine{59     \textcolor{keyword}{inline} \mbox{\hyperlink{class_castle}{\string~Castle}}() \{\}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{inline} std::string getMoneyString() \{ \textcolor{keywordflow}{return} std::to\_string(money); \}}
+\DoxyCodeLine{62 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,61 @@
+\hypertarget{main_8h_source}{}\doxysection{C\+:/\+Users/user/\+Documents/\+Git\+Hub/cpplabs/lab4/ogl\+\_\+begin/main.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}glheaders.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#pragma comment(lib, "{}opengl32.lib"{}})}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Map.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keywordtype}{void} drawSquare(\textcolor{keywordtype}{float} size, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }Map}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{float} h, w, wh = 16.0f/9.0f;}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} secCounter = 0;}
+\DoxyCodeLine{12     \textcolor{keywordtype}{float} mapFromX = -\/16.0f / 9.0f;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{float} mapFromY = -\/0.5f;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{float} mapToY = 1;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} seconds = 1;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{float} mapToX = 16.0f / 9.0f;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{float} sizeOfSquare;}
+\DoxyCodeLine{18     TowerType choicedType = TowerType::tower1lvl;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{//textures}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float} textureMap[] = \{ 0,1, 1,1, 1,0, 0,0 \};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} castleTexture;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} emptyTexture;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} enemyTexture;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tower1Texture;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tower2Texture;}
+\DoxyCodeLine{27     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tower3Texture;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} forestTexture;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} trapTexture;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} spawnerTexture;}
+\DoxyCodeLine{31     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} roadTexture;}
+\DoxyCodeLine{32 \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} save()}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     std::ofstream fout;}
+\DoxyCodeLine{37     fout.open(\textcolor{stringliteral}{"{}bin/save.bin"{}}, std::ofstream::binary | std::ofstream::in);}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} (!fout.is\_open())}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         fout.open(\textcolor{stringliteral}{"{}bin/save.bin"{}}, std::ofstream::binary);}
+\DoxyCodeLine{41         fout.close();}
+\DoxyCodeLine{42         fout.open(\textcolor{stringliteral}{"{}bin/save.bin"{}}, std::ofstream::binary | std::ofstream::in);}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     fout.write((\textcolor{keywordtype}{char}*)\&Map::seconds, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{45     GameMap::save(fout);}
+\DoxyCodeLine{46     fout.close();}
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} load()}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     std::ifstream fin;}
+\DoxyCodeLine{52     fin.open(\textcolor{stringliteral}{"{}bin/save.bin"{}}, std::ifstream::binary | std::ifstream::in);}
+\DoxyCodeLine{53     fin.read((\textcolor{keywordtype}{char}*)\&Map::seconds, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{54     GameMap::load(fin);}
+\DoxyCodeLine{55     fin.close();}
+\DoxyCodeLine{56 \}}
+
+\end{DoxyCode}

@@ -402,7 +402,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	EnableOpenGL(hwnd, &hDC, &hRC);
 	//
 	//GameMap::gameInit();
-	//save();
 	//
 	load();
 	//
@@ -480,7 +479,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 			Sleep(1);
 		}
 	}
-	save();
+	if (GameMap::getCastle().getCurHp()>0)
+		save();
 	/* shutdown OpenGL */
 	DisableOpenGL(hwnd, hDC, hRC);
 

@@ -128,6 +128,7 @@
     <ClInclude Include="glheaders.h" />
     <ClInclude Include="library\stb_easy_font.h" />
     <ClInclude Include="library\stb_image.h" />
+    <ClInclude Include="list.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Buildings.h" />
     <ClInclude Include="Map.h" />
