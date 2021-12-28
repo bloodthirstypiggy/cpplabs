@@ -1,97 +1,116 @@
-#include <gtest/gtest.h>
-#include "../ternaryvector/vector.hpp"
-#include"test.hpp"
+#include"../ternaryvector/vector.hpp"
+#include "gtest/gtest.h"
 using namespace vector1;
 
-t_vectorTest::t_vectorTest() {
-
-
+TEST(Assert, or)
+{
+  //Arrange
+  int a =6;
+  int b = 7;
+  t_vector test1(a);
+  t_vector test2(b);
+  //Act
+  t_vector result = test1 | test2;
+  std::cout << result.get_vector_Array() << std::endl;
+  //Assert
+  EXPECT_NO_THROW(result.get_vector_Array());
+  EXPECT_EQ( 6 , result.get_vector());
+  EXPECT_EQ( 'X' , result.get_vector_Array()[5]);
 }
 
-t_vectorTest::~t_vectorTest() {
 
+TEST(Assert, and)
+{
+  //Arrange
+  int a =6;
+  int b = 7;
+  t_vector test1(a);
+  t_vector test2(b);
+  //Act
+  t_vector result = test1 & test2;
+  std::cout << result.get_vector_Array() << std::endl;
+  //Assert
+  EXPECT_NO_THROW(result.get_vector_Array());
+  EXPECT_EQ( 6 , result.get_vector());
+  EXPECT_EQ( 'X' , result.get_vector_Array()[5]);
 }
 
-TEST_F(t_vectorTest, SettingTests)
+
+TEST(Assert, setter)
 {
 
-    char text[2] = {1,1};
-    EXPECT_NO_THROW(vector_1.set_vector(text));
-    
+
+ int a =6;
+  int b = 7;
+ t_vector test1(a);
+ t_vector test2(b);
+ char* c = "111";
+  test1.set_vector(c);
+  EXPECT_NO_THROW(test1.get_vector_Array());
+  EXPECT_EQ( '1' , test1.get_vector_Array()[1]);
 
 }
 
-TEST_F(t_vectorTest, GettingTests)
+TEST(Assert, getter)
 {
 
-    char text1[4] = {'1','1','1','1'};
-    vector_1.set_vector(text1);                                                                                                                                                                                   
-    EXPECT_EQ(vector_1.get_vector(), 4);
-    EXPECT_NO_THROW(vector_1.print_vector_Array());
 
+ int a =6;
+  int b = 7;
+ t_vector test1(a);
+ t_vector test2(b);
+ char* c = "111";
+  test1.set_vector(c);
+  EXPECT_NO_THROW(test1.get_vector_Array());
+  for (int i =0; i<test1.get_vector();i++){
+  EXPECT_EQ( '1' , test1.get_vector_Array()[i]);
+  }
 }
 
-TEST_F(t_vectorTest, ORTests)
+TEST(Assert, invert)
 {
-
-    char text1[5] = {1,1,1,1};
-    vector_1.set_vector(text1);
-    char text2[5] = {0,0,0,0};
-    vector_2.set_vector(text2);
-    if (vector_1.get_vector() > vector_2.get_vector()) {
-        vector_2.diff_vector(vector_1);
-      } else {
-        vector_1.diff_vector(vector_2);
-      }
-    
-    
+  //Arrange
+  int a =6;
+  int b = 7;
+  t_vector test1(a);
+  //Act
+  t_vector result = ~test1;
+  std::cout << result.get_vector_Array() << std::endl;
+  //Assert
+  EXPECT_NO_THROW(result.get_vector_Array());
+  EXPECT_EQ( 6 , result.get_vector());
+  EXPECT_EQ( 'X' , result.get_vector_Array()[5]);
+  char* testing = "111111";
+  test1.set_vector(testing);
+  result = ~test1;
+  std::cout << result.get_vector_Array() << std::endl;
+  EXPECT_EQ('0', result.get_vector_Array()[1]);
 }
 
-TEST_F(t_vectorTest, ANDTests)
+TEST(Assert, equal)
 {
-
-    char text1[5] = {1,1,1,1};
-    vector_1.set_vector(text1);
-    char text2[5] = {0,0,0,0};
-    vector_2.set_vector(text2);
-    if (vector_1.get_vector() > vector_2.get_vector()) {
-        vector_2.diff_vector(vector_1);
-      } else {
-        vector_1.diff_vector(vector_2);
-      }
-    
-    
+  //Arrange
+  int a =6;
+  int b = 7;
+  t_vector test1(a);
+  t_vector test2(b);
+  //Act
+  bool result = test1 == test2;
+  std::cout << result << std::endl;
+  //Assert
+  //EXPECT_NO_THROW(result.get_vector_Array());
+  EXPECT_EQ(true, result);
+  //EXPECT_EQ( 'X' , result.get_vector_Array()[5]);
+  char* testing = "111111";
+  test1.set_vector(testing);
+  result = test1 ==test2;
+  //std::cout << result.get_vector_Array() << std::endl;
+  EXPECT_EQ(false, result);
 }
 
-TEST_F(t_vectorTest, EqualTests)
-{
 
-    char text1[5] = {1,1,1,1};
-    vector_1.set_vector(text1);
-    char text2[5] = {0,0,0,0};
-    vector_2.set_vector(text2);
-    if (vector_1.get_vector() > vector_2.get_vector()) {
-        vector_2.diff_vector(vector_1);
-      } else {
-        vector_1.diff_vector(vector_2);
-      }
-    EXPECT_EQ(vector_1.equal_vector(vector_2), false);
-    EXPECT_NO_THROW(vector_1.equal_vector(vector_2));
-
-}
-
-TEST_F(t_vectorTest, AnalysisTests)
-{
-
-    char text[10] = {1,1,1,1};
-    vector_1.set_vector(text);
-    EXPECT_EQ(vector_1.analysis_vector(), false);
-    EXPECT_NO_THROW(vector_1.print_vector_Array());
-
-}
-
-/*int main(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
-}*/
+}

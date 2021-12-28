@@ -37,6 +37,10 @@ t_vector::t_vector(const t_vector & vector1)
   array[n] = '\0';
 }
 
+t_vector::~t_vector()
+{
+	delete[] array;
+}
 
 
 int t_vector::get_vector() const { return n; }
