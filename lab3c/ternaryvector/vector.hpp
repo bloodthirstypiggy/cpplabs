@@ -40,12 +40,13 @@ public:
   // эту строку в массив char вектора
   t_vector(char* string);
   t_vector(const t_vector & vector1);
+  ~t_vector();
   // \brief setters and getters
   int get_vector() const;
   const char* get_vector_Array() const;
   // \brief копирует строку, которая подается в массив класса
   void set_vector(char* change);
-  void print_vector_Array();
+  void print_vector_array();
   // \brief дополняет иксами один из векторов чтобы было одинаковое кол-во
   void diff_vector(t_vector vector_2);
   void invert_vector();

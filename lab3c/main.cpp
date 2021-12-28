@@ -178,7 +178,7 @@ void menu(t_vector vector1, t_vector vector2) {
   }
 }
 
-int main(){
+/*int main(){
   try
   {
   int b = 0;
@@ -201,4 +201,4 @@ int main(){
     std::cout << "ext n " << a << std::endl;
   }
   return 0;
-}
+}*/
