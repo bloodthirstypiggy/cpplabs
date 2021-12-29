@@ -1,0 +1,7 @@
+﻿  Test.cpp
+D:\Programs\C++\DefendTest\DominoTest\DominoTest\Enemy.h(37,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Programs\C++\DefendTest\DominoTest\DominoTest\Enemy.h(38,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Programs\C++\DefendTest\DominoTest\DominoTest\Buildings.h(36,41): warning C4244: return: преобразование "int" в "float", возможна потеря данных
+D:\Programs\C++\DefendTest\DominoTest\DominoTest\Test.cpp(52,30): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+D:\Programs\C++\DefendTest\DominoTest\DominoTest\Test.cpp(52,23): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  DominoTest.vcxproj -> D:\Programs\C++\DefendTest\DominoTest\Debug\DominoTest.exe

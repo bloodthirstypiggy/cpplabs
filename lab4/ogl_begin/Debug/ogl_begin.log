@@ -1,5 +1,0 @@
-﻿  Enemy.cpp
-D:\Programs\C++\Defend\ogl_begin\Enemy.h(37,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-D:\Programs\C++\Defend\ogl_begin\Enemy.h(38,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-D:\Programs\C++\Defend\ogl_begin\Enemy.cpp(60,64): warning C4244: -=: преобразование "float" в "int", возможна потеря данных
-  ogl_begin.vcxproj -> D:\Programs\C++\Defend\Debug\ogl_begin.exe

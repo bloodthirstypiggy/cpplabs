@@ -1,0 +1,34 @@
+﻿  Buildings.cpp
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(37,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(38,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Buildings.h(36,41): warning C4244: return: преобразование "int" в "float", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Buildings.cpp(31,34): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Buildings.cpp(201,13): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Buildings.cpp(247,42): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Effect.cpp
+  Enemy.cpp
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(37,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(38,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.cpp(60,64): warning C4244: -=: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.cpp(76,48): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Map.cpp
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(37,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(38,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Buildings.h(36,41): warning C4244: return: преобразование "int" в "float", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Map.cpp(226,15): warning C4101: building: неиспользованная локальная переменная
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Map.cpp(343,15): warning C4101: building: неиспользованная локальная переменная
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Map.cpp(529,48): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Test.cpp
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(37,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Enemy.h(38,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Buildings.h(36,41): warning C4244: return: преобразование "int" в "float", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Test.cpp(52,30): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Test.cpp(52,23): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  Создание кода...
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Map.cpp(197): warning C4715: getCost: значение возвращается не при всех путях выполнения
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Map.cpp(222): warning C4715: getStringType: значение возвращается не при всех путях выполнения
+C:\Users\piggy\Documents\GitHub\cpplabs\lab4\DominoTest\Buildings.cpp(70): warning C4715: Tower::getGold: значение возвращается не при всех путях выполнения
+  gtest-all.cc
+  gmock-all.cc
+  Создание кода...
+  DominoTest.vcxproj -> C:\Users\piggy\Documents\GitHub\cpplabs\lab4\x64\Debug\DominoTest.exe
